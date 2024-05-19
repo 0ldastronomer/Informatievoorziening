@@ -7,3 +7,12 @@ Nummer alle stappen volgens het nummer systeem bijvoorbeeld 1, 2, 3, 4
 Indien er een splitsing plaatsvindt door bijvoorbeeld een if statement nummer dan als volgt: 1.1, 1.2
 Indien er een splitsing plaatsvindt na een splitsing nummer dan als volgt: 1.1.1, 1.2.1
 Blijf dit herhalen indien er nog meer splitsingen plaatsvinden
+
+Indien er bijvoorbeeld een keuzemenu gemaakt moet worden, zet dan ergens aan de zijkant van de flowchart een
+kleine uitleg met wat dit inhoud. Een voorbeeld heirvan is:
+9. Het keuzemenu bestaat uit het volgende:
+    1. Boek lenen
+    2. Boek terugbrengen
+    3. Leden registratie
+    4. Catalogus bijwerken
+    0. Cancel
