@@ -1,0 +1,21 @@
+-DHCP instellen-
+*in conf t*
+ip dhcp pool (pool naam)
+network (ip adres) (subnet masker)
+default-router (default gateway)
+
+-VTP instellen-
+Kies een switch als server
+*in conf t*
+vtp mode server
+vtp domain (domain)
+Vergeet niet de betreffende poorten in de trunk modes te zetten:
+int (poort/range aan poorten)
+switchport mode trunk
+
+Kies de switches die als clients dienen
+*in conf t*
+vtp mode client
+vtp domain (domain)
+
+-OSPF-
