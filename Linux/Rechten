@@ -1,0 +1,47 @@
+useradd  		maakt gebruiker aan 
+useradd -m 		maakt gebruiker aan en maakt meteen home map voor gebruiker aan.  
+groupadd  		maakt groep aan  
+passwd (naam gebruiker) command om ww te maken/ wijzigen van ingevoerde gebruiker.  
+usermod of groupmod			command om user of groep instellingen te wijzigen 
+userdel of groupdel 	verwijderd een groep of user 
+userdel -r		verwijderd ook home map van user 
+usermod -aG (groepnaam) (usernaam)	zet user in aangewezen groep.  
+gpasswd -d (groepnaam) (usernaam)	verwijderd user uit groep 
+chgrp (groepnaam) (mapnaam)	maakt groep eigenaar over genoemde map 
+chgrp -R	maakt ingevoerde groep eigenaar van genoemde map en alle mappen en files daaronder 
+chgrp (usernaam) (mapnaam)		maakt user eigenaar van map of file.  
+groupadd -g 750 test	maakt een groep aan met ID 750 en de naam test. Dus met -g kan je zelf het ID van de groep bepalen  
+id (naam)		vraagt ID van groep of user aan.  
+id -g frits		geeft de primary groep van frits weer.  
+id -G frits		geeft alle groep-ID weer waar frist lid van is.  
+useradd -D		command om default waarde te zien waarmee gebruiker word aangemaakt 
+useradd -g	command waarmee je het GID zelf in kan vullen. Je kan de user dus een aparte GID geven 
+useradd -b	command waarmee je kan bepalen waar de home map van de gebruiker komt te staan 
+useradd -f	command die het ww na de ingevoerde tijd laat verlopen.  
+useradd -e		command die gebruiker automatisch verwijderd na de ingevoerde datum. 
+useradd -k 	command die aangegeven files kopieert en deze in de home map van de gebruiker plaatst. 
+useradd -m	maakt direct home map aan voor user 
+ls -l	geeft alle lees schrijf en x rechten weer van bestanden/ mappen in map 
+usermod -g groep user maakt groep de hoofd groep en de enige groep van user. Dus als user in 2 groepen zit verwijder je de user uit 1 van de 2 groepen. 
+
+
+ls -al	command die rechten en eigenaren uitleest van mappen en bestanden in directory  
+chmod			command die rechten veranderd.  
+chmod 764 Test	command die de rechten van bestand test veranderd voor: de eigenaar(7), de groep(6), de anderen(4) 
+chmod frits /home/frits	command die frits eigenaar van de map frits maakt.   
+chmod frits: Verkopers Test	command die frits(eigenaar) en de groep verkopers(groepseigenaar) eigenaar maakt van bestand Test.  
+chgrp (groep) (map)	command die map eigendom maakt van een groep 
+groups			command (uitvoeren als root) die de groepen laat zien waar je lid van bent 
+newgrp	command (uitgevoerd als root) waarmee je je eigen primary group tijdelijk kunt wijzigen.  
+Exit			command die zorgt dat tijdelijke groep weer je eigen primary groep word.  
+Umask	command die de standaard rechten voor nieuwe bestanden en mappen veranderd naar ingevoerde rechten 
+Umask 027	command die standaard rechten verandert (voor extra uitleg bekijk samenvatting lesblok 15) 
+chmod o-x symbolic	command die het recht uitvoeren(x) van rest of the world(o) verwijderd van de map symbolic 
+chmod go-r, g-w symbolic	command die recht read(r) voor groep(g), rest of world(o) en die recht write(w) voor groep(g) verwijderd.  
+chmod a=rwx symbolic	command die rechten: read, write, execute geeft aan iedereen(a) voor de map symbolic.   
+Stat	commando die rechten op beide manieren laat zien. Dus met nummers en met cijfers. Dus zowel chmod als umask.	 
+chmod u+s	command om user-ID toe te kennen  
+chmod g+s	command om groep-ID toe te kennen 
+chmod o+t	command om sticky bit toe te kennen.  
+chown =	command om eigenaar of goepseigenaar van map/bestand te veranderen.   
+chown frits: verkopers test = command waarmee je frits en de groep verkopers eigenaar maakt van bestand test. 
