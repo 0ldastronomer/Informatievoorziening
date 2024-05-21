@@ -1,0 +1,25 @@
+Zoek naar de default gateway en ssh naar dit adres, vanaf hier kan je de cdp stappen blijven volgen om het netwerk in kaar te brengen.
+
+Commands voor inventarisatie:  
+
+Commands voor op de pc: 
+
+Ipconfig 
+
+ 
+
+Commands voor op cisco apparaten: 
+
+Show ip interface brief 
+Show mac address-table 
+Show cdp neighbors 
+Show cdp entry "naam apparaat" 
+
+ 
+
+Commands voor troubleshooten: 
+
+Show running-config =	typ in privileged modes om de running config te laten zien. dus laat de op dat moment opgeslagen configuratie zien.  
+Show startup-config = 		typ in privileged mode. Om de startup-config file te laten zien. 
+Show ip interface brief =	laat ip interfaces zien.  
+Show mac address-table =	laat mac address tables zien. 
