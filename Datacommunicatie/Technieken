@@ -18,4 +18,16 @@ Kies de switches die als clients dienen
 vtp mode client
 vtp domain (domain)
 
+-Root switch instellen(Spanning-tree)-
+de standaard priority waarde is 32778. Je kan controleren welke switch de root switch is door te kijken of het mac adres overeenkomt tussen het ROOT ID adres en het BRIDGE ID adres. 
+Controleren ROOT ID:
+Enable 
+Show spanning-tree vlan (vlan nummer) 
+
+Instellen root switch:
+Enable 
+Conf t 
+Spanning-tree vlan (vlan nummer) priority 0 
+De priority gaat met intervallen van 4096 waarbij 0 de hoogste priority heeft. 
+
 -OSPF-
