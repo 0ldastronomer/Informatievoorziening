@@ -5,3 +5,21 @@ cd /srv/www/htdocs
 vi website layout(meestal html bestand)
 systemctl start/restart  apache2.service
 test met: w3m localhost
+
+-Samba installeren/instellen-
+*uitvoeren als root user*
+zypper install samba
+systemctl start nmb.service
+Maak een map aan die je wilt delen
+chgrp (groep die erbij mag) (map naam)
+voeg een smb gebruiker toe: smbpasswd -a (username)
+vi /etc/samba/smb.conf
+scroll naar beneden en voeg onderaan het volgende toe:
+[map naam]
+          path = (pad naar map)
+          writeable = yes
+          comment = (comment naar keuze)
+ga uit smb.conf
+systemctl restart nmb.service
+(in sommige gevallen moet je de firewall uitzetten, dit doe je met: systemctl stop firewalld.service)
+test door via windows een nieuwe netwerk locatie toe te voegen, voer hier \\(ip adres van de linux machine)\(mapnaam)
