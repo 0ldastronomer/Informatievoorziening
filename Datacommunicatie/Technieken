@@ -31,3 +31,11 @@ Spanning-tree vlan (vlan nummer) priority 0
 De priority gaat met intervallen van 4096 waarbij 0 de hoogste priority heeft. 
 
 -OSPF-
+*in conf t*
+router ospf 1
+(indien "IP routing not enabled" doe: "IP routing" herhaal hierna het vorige commando)
+network (netwerk adres) (wildcard mask) area 0
+
+-wildcard mask cheatsheet-
+https://en.wikipedia.org/wiki/Wildcard_mask
+
