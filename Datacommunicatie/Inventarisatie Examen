@@ -19,7 +19,7 @@ Show mac address-table
 -LLDP-
 show lldp neighbors
 show lldp details
-show ip interface
+show interface
 
 
 Commands voor troubleshooten: 
