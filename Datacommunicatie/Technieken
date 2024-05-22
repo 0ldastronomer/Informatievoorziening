@@ -39,3 +39,18 @@ network (netwerk adres) (wildcard mask) area 0
 -wildcard mask cheatsheet-
 https://en.wikipedia.org/wiki/Wildcard_mask
 
+-SSH instellen-
+*in conf t*
+Hostname (hostname naar keuze)
+(soms is een ip domain-name nodig, in dat geval: ip domain-name (domain name naar keuze))
+crypto key generate rsa
+"How many bits in modules [512]:" (naar keuze maar meestal 2048)
+line vty (naar keuze maar meestal 0 4)
+transport input ssh
+login local
+exit
+username (username naar keuze) password (password naar keuze)
+
+-SSH gebruiken-
+Ga naar een terminal op een pc
+ssh -l (username) (ip adres van router)
