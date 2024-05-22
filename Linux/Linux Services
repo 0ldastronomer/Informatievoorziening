@@ -1,0 +1,7 @@
+-Apache2 installeren/instellen-
+*uitvoeren als root user*
+zypper install apache2
+cd /srv/www/htdocs
+vi website layout(meestal html bestand)
+systemctl start/restart  apache2.service
+test met: w3m localhost
