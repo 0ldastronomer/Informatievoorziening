@@ -3,6 +3,8 @@
 ip dhcp pool (pool naam)
 network (ip adres) (subnet masker)
 default-router (default gateway)
+indien nodig kan dns ook igesteld worden:
+dns (ip adres)
 
 -VTP instellen-
 Kies een switch als server
