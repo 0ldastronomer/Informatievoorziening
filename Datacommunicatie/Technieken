@@ -13,6 +13,7 @@ Vergeet niet de betreffende poorten in de trunk modes te zetten:
 int (poort/range aan poorten)
 switchport mode trunk
 Het kan zijn dat de poorten niet allebei dezelfde soort encapsulation gebruiken, doe dan het volgende op de interfaces:
+*doe dit alleen als het na het fast forwarden (>> knop links onderin) nogsteeds niet werkt*
 switchport trunk encapsulation dot1q
 
 Kies de switches die als clients dienen
