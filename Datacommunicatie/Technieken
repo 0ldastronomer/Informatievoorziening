@@ -12,6 +12,8 @@ vtp domain (domain)
 Vergeet niet de betreffende poorten in de trunk modes te zetten:
 int (poort/range aan poorten)
 switchport mode trunk
+Het kan zijn dat de poorten niet allebei dezelfde soort encapsulation gebruiken, doe dan het volgende op de interfaces:
+switchport trunk encapsulation dot1q
 
 Kies de switches die als clients dienen
 *in conf t*
