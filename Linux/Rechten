@@ -1,3 +1,14 @@
+user   group   other
+rwx      rwx    rwx
+
+
+0 No_Permission
+1  x 
+2  w 
+4  r
+
+770
+
 useradd  		#maakt gebruiker aan 
 useradd -m 		#maakt gebruiker aan en maakt meteen home map voor gebruiker aan.  
 groupadd  		#maakt groep aan  
