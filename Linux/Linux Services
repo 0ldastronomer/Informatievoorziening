@@ -1,10 +1,34 @@
--Apache2 installeren/instellen-
+-enkele Apache2 website installeren/instellen-
 *uitvoeren als root user*
 zypper install apache2
+systemctl start apache2.service
 cd /srv/www/htdocs
-vi website layout(meestal html bestand)
+mkdir (websitenaam)
+vi index.html
+(vul hier de informatie in die je op je website wilt laten zien)
 systemctl start/restart  apache2.service
 test met: w3m localhost
+
+-meerdere Apache2 website installeren/instellen-
+*uitvoeren als root user*
+zypper install apache2
+systemctl start apache2.service
+cd /srv/www/vhosts
+mkdir (websitenaam(herhaal zovaak als dat gevraagd wordt))
+cd (websitenaam)
+vi index.html
+(vul hier de informatie in die je op je website wilt laten zien)
+cd /etc/apache2/vhosts.d/
+cp vhost.template (websitenaam.conf)(doe zovaak nodig)
+vi (websitenaam.conf)
+voer in de vi command line het volgende in:
+1,$ s/dummy-host.example.com/websitenaam/g
+sluit vi bestand
+controleer met apachectl configtest
+vi /etc/hosts
+vul onder 127.0.0.1 je eigen ip adres in(hier kom je achter door ip addr) en vul daarna de website in
+sluit vi bestand
+Test door via de browser naar die website te gaan
 
 -Samba installeren/instellen-
 *uitvoeren als root user*
