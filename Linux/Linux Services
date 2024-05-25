@@ -14,7 +14,8 @@ test met: w3m localhost
 *uitvoeren als root user*
 zypper install apache2
 systemctl start apache2.service
-cd /srv/www/vhosts
+cd /srv/www/
+mkdir vhosts
 mkdir (websitenaam(herhaal zovaak als dat gevraagd wordt))
 cd (websitenaam)
 vi index.html
