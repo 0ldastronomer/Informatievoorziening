@@ -59,3 +59,18 @@ username (username naar keuze) password (password naar keuze)
 -SSH gebruiken-
 Ga naar een terminal op een pc
 ssh -l (username) (ip adres van router)
+
+-bpdu guard- (geen idee hoe het werkt, maar misschien komt het erin)
+show stp-bpdu-guard #laat bpdu guard status zien?
+spanning-tree portfast bpduguard default #zet het aan
+no spanning-tree portfast bpduguard default #zet het uit
+
+-access list-
+*in conf t*
+access-list (acces-list nummer) deny ip (source ip) (source ip wildcard) (destination ip) (destination ip wildcard)
+access-list (acces-list nummer) permit ip any any
+
+-access list op interface toevoegen-
+*in conf t*
+int (interface naar keuze, bijvoorbeeld een vlan)
+ip access-group (access-list nummer) in
