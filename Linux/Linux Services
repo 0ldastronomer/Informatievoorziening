@@ -49,3 +49,29 @@ ga uit smb.conf
 systemctl restart nmb.service
 (in sommige gevallen moet je de firewall uitzetten, dit doe je met: systemctl stop firewalld.service)
 test door via windows een nieuwe netwerk locatie toe te voegen, voer hier \\(ip adres van de linux machine)\(mapnaam)
+
+-NFS server-
+*uitvoeren als root user*
+cd (pad waar je de nfs share wilt)
+mkdir (nfs share map)
+chgrp (groep die de eigenaar mag zijn, meestal users) (mapnaam)
+chmod (meestal 770) (mapnaam)
+cd (mapnaam)
+mkdir (mappen die je wilt delen)
+zypper install nfs-kernel-server
+systemctl start nfsserver.service
+systemctl start rpcbind.service
+systemctl stop firewalld.service
+vi /etc/exports
+*voeg de volgende regel toe in dit bestand*
+/(pad naar algemene nfs share map) (ip adres van de pc)/(subnet van de pc)"(rw,no_root_squash,insecure)" <-- het laatste tussen aanhalingstekens moet tussen haakjes
+sluit vi bestand
+systemctl restart nfsserver.service
+showmount -e *hiermee controleer je of de export van de share map goed geconfigureerd is*
+de output moet hierop lijken:
+Export list for localhost.localdomain:
+(pad naar algemene nfs share map) (ip adres van computer)/(Subnet van computer)
+
+-NSF share benaderen-
+mkdir (mapnaam naar keuze)
+mount -t nfs (ip adres van server):(pad naar algemene nfs share map) (pad naar de map die zojuist is aangemaakt)
