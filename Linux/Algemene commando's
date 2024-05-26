@@ -1,0 +1,1021 @@
+lijst met commando’s:  
+
+ 
+
+ls = 			list  
+
+su = 			super user / switch user 
+
+Man =			geeft beschrijving wat commando’s doen.  
+
+cd = 			chance directory  
+
+cd ~= 			je komt in de home-map van huidige gebruiker 
+
+ls - -help = 		geeft beschrijving wat commando’s doen. 
+
+ls -a = 			laat alle bestanden zien  
+
+ls -l = 			laat lange lijst zien + rechten 
+
+ls -lh = 			laat bestandgrootte in makkelijk leesbaar voormaat zien.  
+
+ls -ld = 			geeft alleen directory weer waar je op dat moment zit.  
+
+ls -R = 			geeft alle sub mappen weer.  
+
+ls -S =			soorteer op grootte.  
+
+ls -r = 			omkeren van sorteren 
+
+lsblk = 			laat block devices op jouw computer zien.  
+
+cat = 			je kan een bestand uitlezen.  
+
+rm =			verwijder je iets mee.  
+
+rm -d =			je verwijderd directory. (alleen als directory leeg is) 
+
+rm -r =			verwijdert map/bestand met inhoud zonder te vragen 
+
+rm -i =			verwijdert file met te vragen of je wil verwijderen 
+
+cp = 			copy. schrijft een bestand over. 
+
+cp -i =			vraagt of het bestand overschreven moet worden 
+
+cp -n =			overschrijft het bestand niet  
+
+cp -v = 			laat in output zien of het gelukt is.  
+
+mv =			verplaatst of hernoemt een bestand.  
+
+mv -i =			vraagt of je een bestand wil overschrijven.  
+
+mv -n = 		geeft de no-optie  
+
+mv -v = 		laat in de output zien of het gelukt is.  
+
+(command) | less=	met | less kan je scrollen in CLI.  
+
+tail=			je bekijkt laatste 10 regels van een bestand 
+
+tail -20=		geeft laatste 20 regels van bestand weer.  
+
+tail -f=			je kunt on de fly een log bestand bekijken 
+
+head=			geeft de eerste 10 regels van een bestand weer. 
+
+Head -20=		geeft eerste 20 regels van bestand weer. 
+
+$PATH=		geeft alle zoekpaden weer.  
+
+PATH=/ = 		hiermee kun je een pad toevoegen.  
+
+$HISTSIZE = 		slaat de volgende commando’s op en je kan ze bekijken 
+
+HISTSIZE=1200 = 	je veranderd opgeslagen commando’s naar 1200.  
+
+pdbedit -L = 		toont lijst van alle aangemaakte smb accounts 
+
+ls -l = 			toont de groepen van mappen in directory 
+
+id gebruiker =		toont groepen waarmee gebruiker verbonden is. 
+
+ 
+
+type=			geeft info over command.  
+
+which=			weergeeft de locatie van geïnstalleerde programma en commando’s  
+
+dus bijvoorbeeld:   which ls 
+
+who=			geeft weer wie er op het  console ingelogd is.  
+
+w= 			geeft nog meer info dan who  
+
+ip addr show=		laat info van netwerkkaart bekijken/wijzigen 
+
+pwd=			print working directory. laat het pad van cd zien 
+
+mkdir= 			maakt een nieuwe directory (dus een nieuwe map maken) 
+
+touch “” >naam=	maak een nieuwe bestand aan. (tussen de comma’s zet je neer wat je in bestand wilt hebben.) 
+
+sort = 			kan je bestand sorteren  
+
+sort -r = 	sorteert bestand omgekeerd. Dus als je sorteert op naam word met -r eerst de z gedaan in plaats van de a. 
+
+met n achter sort zeg je dat je numeriek wil sorteren.  
+
+Sort -t: = 	je sorteert de kolommen door middel van een : 
+
+ 
+
+cut  = 	selecteert alleen de ingevoerde kolommen en laat alleen deze zien  
+
+cut -d ‘  ‘ -f3,5-7 	-d ‘   ‘ geeft aan hoe de kolommen gescheiden worden  
+
+-f3,5-7 geeft aan welke kolommen je wil selecteren. Dus nu worden kolommen 3 5 6 7 geselecteerd.  
+
+Cut -c = 	kan de letter die je wil zien per regel aangeven. 
+
+Geten = 	laat een record uit de geselecteerde file zien.  
+
+Geten passwd root=	brengt de entry root uit de file passwd in beeld. (dus brengt in dit geval de rij root in beeld van de file passwd). 
+
+wc (word count) = 	geeft aantal woorden, regels, bytes in bestand aan. En geeft de naam van bestand aan.  
+
+xargs =	zet standaard input om naar output voor een commando 
+
+ls | xargs rm = 	je voert output van ls in xargs in. Deze zorgt ervoor dat lijst wordt opgedeeld in stukken zodat rm deze kan verwijderen.  
+
+ 
+
+; dan worden commando’s na elkaar uitgevoerd. 
+
+&& dan word 2de commando alleen uitgevoerd als eerste commando gelukt is. 
+
+|| dan word 2de commando niet uitgevoerd als 1ste commando succesvol is 
+
+Sbin is bestand waar je root commando’s kan vinden.  
+
+ 
+
+Lesblok 09 
+
+graphical .target	start systeem op met netwerkomgeving, multi-userondersteuning, grafische omgeving ( met GUI) 
+
+multi-user.target	start systeem op met netwerkomgeving, multi-userondersteuning (zonder GUI) 
+
+halt.target	stopt het systeem	 
+
+Poweroff.target	stopt het systeem 
+
+reboot.target	het systeem herstart 
+
+rescue.target	start single-user-systeem zonder netwerkomgeving 
+
+default.target	default ingestelde target word weer ingesteld (eigenlijk geen target) 
+
+ 
+
+ 
+
+lesblok 10 
+
+yast	via CLI kom je met dit commando in software manager.  
+
+zypper update	houd je installatie up to date.  
+
+Lesblok 11 
+
+smbclient -L ipadres 	laat lijst met gedeelde mappen zien die opgevraagd worden vanaf windows pc 
+
+smbclient -L ipadres -U <naam>	hiermee kan je user toevoegen aan windows pc 
+
+systemctl stop firewalld.service	stop tijdelijk de firewall  
+
+systemctl disable firewall.service	stop firewall en zal niet opstarten nadat je pc reboot. 
+
+systemctl start sshd.service 		start SSH-daemon op een server 
+
+ssh <ipadres>	hiermee kan je van afstand pc configureren  
+
+Passwd	wijzigen root password.  
+
+ 
+
+Lesblok 12 
+
+mount	om een device te mounten aan een map 
+
+umount	om te kunnen unmounten  
+
+fdisk	om in dit geval een usb te kunnen formateren. 
+
+ 
+
+Lesblok 13 
+
+locate	kan je bestanden mee zoeken 
+
+locate -c	je vraagt op hoe groot het resultaat is. Dus hoeveel resultaten. 
+
+updatedb	update de database van locate 
+
+updatedb &	laat het commando updatedb op de achtergrond draaien 
+
+find	kan je bestanden mee zoeken.  
+
+find /home -name “test” -exec mv {} /tmp/hier \	zoekt een bestand met naam test  
+
+en plaatst het bestand in de map /tmp met de naam hier. De -exec zorgt dat mv word uitgevoerd.  
+
+find / -maxdepth 1	zoekt dan maar 1 map diep. 
+
+find /home -mmin 60	zoekt alleen naar bestanden die je afgelopen uur hebt gemaakt.  
+
+find /home -size +10M -size -100M 	laat alle bestanden zien tussen 10 en 100 MB.  
+
+find /home -group	om bestanden van een groep te vinden 
+
+find /home -iname	i.p.v name. iname is niet hoofdletter gevoelig.  
+
+find /home -type	zoekt op type files 
+
+find /home -user	zoekt alle bestanden van opgegeven eigenaar 
+
+grep			hiermee kan je word of deel zin zoeken in bestand. Dit gebruik je dan als			filter  
+
+grep -c 			telt het aantal resultaten 
+
+grep -v			telt aantal regels waarin zoekwoord niet vermeld staat. 
+
+grep -n			geeft aan in welke regel de match vermeld staat.  
+
+grep -l			in een directory geeft lijst van bestanden die zoekwoord bevat 
+
+grep -i	in een directory geeft regels weer van bestanden waar zoekwoord in gevonden is.  
+
+grep -w			doet zelfde als grep -i. is alleen niet hoofdletter gevoelig.  
+
+cat /etc/protocols | grep RDP	je zoekt in bestand protocols naar elke regel waar RDP in staat 
+
+ls a* of ls[a]*	laat alle bestanden zien die beginnen met a. dus het sterretje zegt alle bestanden.  
+
+ 
+
+ 
+
+ 
+
+ 
+
+Lesblok 14 
+
+useradd  		maakt gebruiker aan 
+
+useradd -m 		maakt gebruiker aan en maakt meteen home map voor gebruiker aan.  
+
+groupadd  		maakt groep aan  
+
+passwd (naam gebruiker) command om ww te maken/ wijzigen van ingevoerde gebruiker.  
+
+usermod of groupmod			command om user of groep instellingen te wijzigen 
+
+userdel of groupdel 	verwijderd een groep of user 
+
+userdel -r		verwijderd ook home map van user 
+
+usermod -aG (groepnaam) (usernaam)	zet user in aangewezen groep.  
+
+gpasswd -d (groepnaam) (usernaam)	verwijderd user uit groep 
+
+chgrp (groepnaam) (mapnaam)	maakt groep eigenaar over genoemde map 
+
+chgrp -R	maakt ingevoerde groep eigenaar van genoemde map en alle mappen en files daaronder 
+
+chgrp (usernaam) (mapnaam)		maakt user eigenaar van map of file.  
+
+groupadd -g 750 test	maakt een groep aan met ID 750 en de naam test. Dus met -g kan je zelf het ID van de groep bepalen  
+
+id (naam)		vraagt ID van groep of user aan.  
+
+id -g frits		geeft de primary groep van frits weer.  
+
+id -G frits		geeft alle groep-ID weer waar frist lid van is.  
+
+useradd -D		command om default waarde te zien waarmee gebruiker word aangemaakt 
+
+useradd -g	command waarmee je het GID zelf in kan vullen. Je kan de user dus een aparte GID geven 
+
+useradd -b	command waarmee je kan bepalen waar de home map van de gebruiker komt te staan 
+
+useradd -f	command die het ww na de ingevoerde tijd laat verlopen.  
+
+useradd -e		command die gebruiker automatisch verwijderd na de ingevoerde datum. 
+
+useradd -k 	command die aangegeven files kopieert en deze in de home map van de gebruiker plaatst. 
+
+useradd -m	maakt direct home map aan voor user 
+
+ls -l	geeft alle lees schrijf en x rechten weer van bestanden/ mappen in map 
+
+usermod -g groep user maakt groep de hoofd groep en de enige groep van user. Dus als user in 2 groepen zit verwijder je de user uit 1 van de 2 groepen. 
+
+  
+
+Lesblok 15 
+
+ls -al	command die rechten en eigenaren uitleest van mappen en bestanden in directory  
+
+chmod			command die rechten veranderd.  
+
+chmod 764 Test	command die de rechten van bestand test veranderd voor: de eigenaar(7), de groep(6), de anderen(4) 
+
+chmod frits /home/frits	command die frits eigenaar van de map frits maakt.   
+
+chmod frits: Verkopers Test	command die frits(eigenaar) en de groep verkopers(groepseigenaar) eigenaar maakt van bestand Test.  
+
+chgrp (groep) (map)	command die map eigendom maakt van een groep 
+
+groups			command (uitvoeren als root) die de groepen laat zien waar je lid van bent 
+
+newgrp	command (uitgevoerd als root) waarmee je je eigen primary group tijdelijk kunt wijzigen.  
+
+Exit			command die zorgt dat tijdelijke groep weer je eigen primary groep word.  
+
+Umask	command die de standaard rechten voor nieuwe bestanden en mappen veranderd naar ingevoerde rechten 
+
+Umask 027	command die standaard rechten verandert (voor extra uitleg bekijk samenvatting lesblok 15) 
+
+ chmod o-x symbolic	command die het recht uitvoeren(x) van rest of the world(o) verwijderd van de map symbolic 
+
+chmod go-r, g-w symbolic	command die recht read(r) voor groep(g), rest of world(o) en die recht write(w) voor groep(g) verwijderd.  
+
+chmod a=rwx symbolic	command die rechten: read, write, execute geeft aan iedereen(a) voor de map symbolic.   
+
+Stat	commando die rechten op beide manieren laat zien. Dus met nummers en met cijfers. Dus zowel chmod als umask.	 
+
+chmod u+s	command om user-ID toe te kennen  
+
+chmod g+s	command om groep-ID toe te kennen 
+
+chmod o+t	command om sticky bit toe te kennen.  
+
+chown =	command om eigenaar of goepseigenaar van map/bestand te veranderen.   
+
+chown frits: verkopers test = command waarmee je frits en de groep verkopers eigenaar maakt van bestand test. 
+
+ 
+
+Lesblok 16 
+
+rpm 	commando waarmee je een programma van rpm-formaat kunt downloaden.  
+
+rpm -i 	voor installeren  
+
+rpm -U 	voor upgraden  
+
+rpm -e 	voor verwijderen  
+
+rmp -vh 	om de voortgang te laten zien 
+
+rpm -ivh XXX.rpm	installeert  XXX en laat de voortgang zien 
+
+rpm -qa	geeft lijst weer van alle geïnstalleerde pakketten.  
+
+rpm -ql pakket	geeft lijst van alle files die pakket omvat en waar deze te vinden zijn 
+
+rpm -qf /home	geeft weer of bestand onderdeel is van pakket en welk pakket.  
+
+rpm -e pakket	verwijderd een pakket 
+
+apt-get	command waarmee je software installeert op Debian gebaseerde distributie 
+
+sudo	command waarmee je tijdelijk super-user-rechten krijgt. Word gebruikt met apt-get 
+
+sudo apt-get update	om lijst van pakketten op te zoeken.  
+
+sudo apt-get upgrade	update alle pakketten 
+
+sudo apt-get search *zoekwoord*	om applicatie te zoeken 
+
+sudo apt-get install *applicatie*	om applicatie te installeren  
+
+sudo apt-get remove *applicatie*	om applicatie te verwijderen zonder config files 
+
+sudo apt-get purge remove *applicatie*	verwijderd applicartie met config files 
+
+sudo dpkg -i *packet*	installeerd pakket.  
+
+Sudo dpkg -l	geeft lijst weer van alle geïnstalleerde pakketten. 
+
+sudo dpkg -L *pakket*	geeft lijst weer van alle files weer en de plaats van de files van genoemde pakket 
+
+sudo dpkg -S /home	geeft weer of bestand deel uitmaakt van pakket en welk pakket. 
+
+sudo dpkg -r *packet*	verwijderd genoemde pakket.  
+
+yum install *pakket*	installeert genoemde pakket.  
+
+yum search *zoekterm*	zoekt pakket in de repositories. 
+
+yum update *pakket*	zoekt en installeert en een update van genoemde pakket 
+
+yum remove *pakket*	verwijderd genoemde pakket  
+
+ 
+
+  
+
+lesblok 18 
+
+rsync -av /bronmap/ /doelmap=	bestand met inhoud kopiëren . de / na bronmap zorgt dat inhoud van map word gekopieert 
+
+rsync -av --delete /bronmap/ /doelmap= bestand met inhoud kopiëren en deleten. Je delete dus het                          					     bestand waarvan je kopieert 
+
+rsync – delete =		hiermee kan je een back-up verwijderen  
+
+rsync -av = 			-a zorgt dat alle atributen van bestand worden meegenomen. -v zorgt 				dat je na kopieren feedback krijgt.  
+
+Rsync -av /bronmap/ /doelmap >> /tmp/backup/logfile = hiermee maak je het bestand logfile aan 				met daarin de feedback.  
+
+crontab =			om command op aangegeven tijd automatisch uit te voeren  
+
+crontab -l = 			lijst opvragen van alle crontab waar je recht op hebt 
+
+crontab -r = 			verwijdert de opdracht en command voert dus niet automatisch 				meer uit 
+
+crontab -e = 			command om automatisch crontab bestand aan te passen.  
+
+crontab ,*,1,5,2,0-6 = 		de cijvers staan voor: minuut, uur, dag, maand, jaar, dag van de week 
+
+sterretje geeft aan dat veld niet word gebruikt. 6=zondg 
+
+mail = 	crontab stuurt elke command+feedback naar root. Met deze command kan je dit inzien. Met q sluit je dit af. 
+
+./ = 	hiermee start je een script op vanuit de home-map. Het script word dus uitgevoerd.  
+
+ 
+
+Lesblok 23 samba  
+
+man smb.config = 		geeft duidelijke en uitgebreide handleiding voor config van bestand 
+
+useradd -m user = 		maakt user aan  
+
+passwd user = 			maakt user password aan 
+
+smbpasswd -a user = 		maakt smb password aan 
+
+systemclt start smb.service = 	start smb.service  
+
+systemclt stop smb.service = 	stopt smb.service  
+
+systemclt restart smb.service = restart smb.service  
+
+systemclt status smb.service = command waarmee je controleert of smb aan staat.  
+
+systemclt enable smb.service = start service op tijdens booten 
+
+systemclt start smb.service = 	zet smb tijdens booten uit. 
+
+systemclt is-enabled smb.service = controleerd of ‘smb starten tijdens booten’ aanstaat 
+
+systemctl list-units = 		command die lijst weergeeft van alle draaiende processen van  
+
+systemctl 
+
+systemctl stop firewalld.service = stopt de firewall tijdelijk tot je opnieuw opstart. 
+
+chkconfig = 			voor services die niet via systemd beheert kunnen worden. 
+
+chkconfig service on --level 35 = zet de service aan in level 3 en 5 
+
+chkconfig -l =			command waarmee je checkt welke service aan en uit staan.  
+
+Testparm = 			command waarmee je checkt of sytemctl service werkt.  
+
+Vi /etc/samba/smb.conf = 	om vi te openen van smb.conf in de map samba.  
+
+ 
+
+Commando’s die je in smb.config invoert.  
+
+Workgroup = [workgroup] = 	wijst server toe aan workgroup.  
+
+Wins server = [yes] = 		intregeren van samba server in bestaande windows server. 
+
+Wins support = [no] = 		als windows machine op andere subnet bevind gebruik je deze lijn. 
+
+Valid users = [%S] = 	toegang tot de share is alleen voor de gebruiker waar ie connectie mee heeft gemaakt. Dus dan kan alleen degene met connectie bij de share.  
+
+Browseable = [no] = 		maakt share onzichtbaar voor andere op het netwerk.  
+
+Read only = [no] = 		maakt share writeable.  
+
+Create mask = [0640] = 	zorgt dat windows machine ook permissies kan krijgen bij nieuw gemaakte files, werkt alleen bij writeable shares 
+
+Directory mask = [0750] = 	? 
+
+Netbios name = [naam] = 	zet de netbios naam waarbij de samba server bekend staat.  
+
+Comment = “bla” = 		tekst die je kan zien bij de share.  
+
+Encrypt passwords = [yes] =	 client moet ww invoeren voodat ie in de share kan.  
+
+Write list = geeft aan welke groep of users wr en lees rechten krijgen 
+
+Read list = geeft aan welke groep of users lees rechten krijgt.  
+
+ 
+
+ 
+
+Lesblok 24 samba vervolg 
+
+chgrp users mapnaam		maakt users eigenaar van een map.  
+
+Chmod 774 mapnaam		geeft rechten aan een map  
+
+ 
+
+ 
+
+ 
+
+Lesblok 27 FTP 
+
+FTP-server opstarten: 
+
+Sudo zypper install vsftpd 
+
+Systemctl start vsftpd.service  
+
+Systemctl enable vsftpd.service 
+
+Zorg ervoor dat je op de server de firewall uitzet.  
+
+Installeer op de client FTP-client Filezilla. Start filzilla op en vul bij host het ip in van FTP-server.  
+
+En bij gebruikersnaam anonymous. (anonymous kan dingen downloaden zonder ww in te hoeven vullen)  
+
+ 
+
+In het bestand /etc/vsftpd.conf kan je default instellingen veranderen. Zo kun je bijvoorbeeld write_enable=NO in YES veranderen. Let hier dus goed op.  
+
+Als je in dit bestand iets veranderd restart je de service en log je opnieuw in op de client.  
+
+Als je wil dat een aantal specifiek personen in kan loggen doe je het volgende: 
+
+Open met vi /etc/vsftpd.conf 
+
+Verwijder het comment teken voor de volgende regels: 
+
+Chroot_local_user=YES 
+
+Chroot_list_enable=YES 
+
+Chroot_list_file=/etc/vsftpd.chroot_list 
+
+Typ in het bestand : allow writeable _chroot=yes 
+
+Maak in map /etc het bestand: vsftpd.chroot.list 
+
+Typ nu op de regels de namen waarvan je wilt dat die erbij kunnen.  
+
+Herstart de FTP-server. 
+
+Log om de beurt in via filezilla als de gebruikers.  
+
+ 
+
+Om bestanden op de webserver sander.test te kunnen uploaden wil je per website 1 gebruiker hebben met alleen rechten op die map. Doe als volgt: 
+
+Maak een FTP-groep aan als deze niet bestaat. Groupadd ftp-users 
+
+Zorg dat de FTP-groep groepeigenaar word van map: /srv/www/vhosts/sander.test 
+
+Geef de 775 rechten op deze map. Chmod 775 /srv/www/vhosts/sander.test 
+
+Maak nieuwe gebruiker adminsander aan die lid is van FTP-groep en die alleen rechten heeft op map sander.test: useradd -d /srv/www/vhosts/sander.test adminsander -g ftp 
+
+Maak voor gebruiker nieuw ww aan: passwd adminsander 
+
+Start web en FTP server opnieuw op.  
+
+Je kan dit herhalen voor gebruiker achternaam. 
+
+ 
+
+ 
+
+Lesblok 26 Apache 
+
+De meeste webservers draaien onder apache op linux. Wanneer Apache2 geïnstalleerd is zie je per distributie de config bestanden op verschillende plaatsen staan. Voor suse zijn de volgende directory’s en bestanden belangrijk: 
+
+/etc/apache2/httpd.conf = van hieruit worden andere bestanden aangeroepen. Dit is in alle  distributies belangrijkste config bestand.  
+
+/etc/apache2/default-server.conf = in dit bestand staat: basis config van de web-server, de document-root, de plek waar bestanden geplaatst moeten worden.  
+
+/srv/www/htdocs = Document-root. Hier plaats je index.html 
+
+ 
+
+Voor opzetten eenvoudige webserver moet je volgende instellen:  
+
+Installeer Apache2 
+
+Plaats website in document-root (d.m.v. overschrijven of hiervan werkende index.html maken) 
+
+Start webserver met commando: systemctl start apache2.service 
+
+Controleer config met commando: apache2ctl configtest 
+
+Probeer vanuit client website te benaderen   
+
+ 
+
+Hostfile 
+
+Linux heeft mogelijkheid om in host-file een naam aan IP-adres te koppelen. Dit zodat je binnen eigen subnet niet IP-adres hoeft te typen in browser. Dit is dus alleen werkzaam binnen eigen subnet 
+
+Open met cat bestand /etc/hosts 
+
+Vul onder regel: “127.0.0.1 localhost” ip van buurman met daarna zijn naam in.  
+
+Typ in browser de voornaam om naar zijn website te gaan. (dit kan alleen als hij ook Apache draait) 
+
+ 
+
+Virtual hosts	hosten van meerdere websites op 1 server 
+
+Voor elke distributie moet je uitzoeken welke config-bestanden je moet bewerken.  
+
+Stappenplan voor suse: (proberen in praktijk? Configureer ook DNS-server. hieronder doe je dat binnen netwerk met bestand: /etc/hosts) 
+
+ 
+
+ga naar map /srv/www/vhosts 
+
+maak hierin map: “voornaam.test” en “achternaam.test” 
+
+plaats in map: voornaam.test en in achternaam.test een werkende index.html waaruit blijkt dat bij voornaam.test website is van voornaam en achternaam.test website is van achternaam  
+
+ga naar map: /etc/apache2/vhosts.d en bekijk met cat bestand: vhost.template  
+
+maak 2 kopieën van dit bestand in deze map. noem 1 achternaam.conf, ander voornaam.conf 
+
+open voornaam.conf en achternaam.conf met vi en vervang overal waar in het voorbeeldbestand staat: “dummy-host.example.com”  door “voornaam.test”  en “achternaam.test” 
+
+controleer in de 2 bestanden of vooraan in eerste regel: “<VirtualHost *:80>” staat. Zo niet typ dit dan zelf.  
+
+Open met VI bestand: /etc/apache2/listen.conf en verwijder “#” voor regel: “NameVirtualHost *:80” of typ dit zelf.  
+
+Controleer config met commando: apache2ctl configtest. Geen foutmelding? Dan is server geconfigureerd.  
+
+ 
+
+Omdat we niet met DNS-server werken moet in bestand: /etc/hosts aangeven dat site: voornaam.test en achternaam.test verwijzen naar IP-adres van server.  
+
+Open op client met VI het bestand: /etc/hosts  
+
+Maak 2 nieuwe regels onder regel: 127.0.0.1 localhost:  
+
+IP-adres voornaam.test  
+
+IP-adres achternaam.test  
+
+Typ in browser: https://voornaam.test en https://achternaam.test. Werkt dit? 
+
+ 
+
+ 
+
+Lesblok 23 samba  
+
+In dit hoofdstuk leer je over sharen van mappen via samba-server. 
+
+Om linux server als file-server in windows omgeving te laten functioneren config je samba-server.  
+
+Het belangrijkste config bestand is: smb.conf te vinden in /etc/samba 
+
+man smb.conf = command waarmee je uitgebreide handleiding kan zien.  
+
+Een eenvoudige share ziet eruit als:  
+
+[smbvoornaam] 
+
+Path = /home/smbvoornaam 
+
+Writeable = yes  
+
+Comment = “gesharede map van voornaam” 
+
+Path geeft aan in welke map gesharede map te vinden is.  
+
+ 
+
+Om samba-server te starten moet je smb- en nmb-service gestart worden. 
+
+systemctl start smb.service  
+
+systemctl start nmb.service 
+
+door start te vervangen met status kan je controleren of service draait.  
+
+Met restart kun je service restarten. Met stop kun je server stoppen. Met enable kun je service starten tijdens het booten. Disable stopt het starten tijdens booten weer.  
+
+Voor controle of config van smb.config goed is gegaan draai je programma: Testparm  
+
+Om windows client in te laten loggen in samba-server voeg je de client toe: 
+
+useradd -m user = maakt user aan 
+
+passwd user  = maakt password aan. 
+
+smbpasswd -a user  = maakt smb password aan.  
+
+Gedeelde mappen aanmaken in /srv. Tijdens inrichten server is verstandig om de map op aparte partitie te mounten. tijdens toets moet je de share in homemap neerzetten! 
+
+Zorg dat user ook rechten heeft om in de gesharede map te komen.  
+
+chkconfig is voor services die niet via systemd beheert kunnen worden.  
+
+ 
+
+Om ervoor te zorgen dat user1 niet in een map van de groep: groep2 kan komen moet je de rechten van de map voor iedereen om 0 zetten. 
+
+Om ervoor te zorgen dat user 2 in de map van groep: groep1 en groep: groep2 kan moet je de rechten van de map per user veranderen.  
+
+Hieronder zijn een paar commando’s die je typt in smb.conf voor redenen: 
+
+Hierbij moet je zelf iets invullen in [] 
+
+Workgroup = [workgroup] = wijst server toe aan workgroup.  
+
+Wins server = [yes] = intregeren van samba server in bestaande windows server. 
+
+Wins support = [no] = als windows machine op andere subnet bevind gebruik je deze lijn. 
+
+Valid users = [%S] = toegang tot de share is alleen voor de gebruiker waar ie connectie mee heeft gemaakt. Dus dan kan alleen degene met connectie bij de share.  
+
+Browseable = [no] = maakt share onzichtbaar voor andere op het netwerk.  
+
+Read only = [no] = maakt share writeable.  
+
+Create mask = [0640] = zorgt dat windows machine ook permissies kan krijgen bij nieuw gemaakte files, werkt alleen bij writeable shares 
+
+Directory mask = [0750] = ? 
+
+Netbios name = [naam] = zet de netbios naam waarbij de samba server bekend staat.  
+
+Comment = “bla” = tekst die je kan zien bij de share.  
+
+Encrypt passwords = [yes] = client moet ww invoeren voodat ie in de share kan.  
+
+Valid users = zorgt dat alleen de groep of users in de share kunnen. je meot hierbij wel write list en read list specificeren.  
+
+Write list = geeft aan welke groep of users wr en lees rechten krijgen 
+
+Read list = geeft aan welke groep of users lees rechten krijgt. 
+
+ 
+
+Scripting in linux: 
+
+Scripts 
+
+Een script moet aan 3 volwaardes voldoen:  
+
+in eerste regel roep je juiste shell aan door script te beginnen met #!/bin/bash  
+
+je moet execute-recht geven om script uitvoerbaar te maken.  
+
+Je moet tijdens uitvoeren het hele pad aangeven of dit pad vastleggen met commando path  
+
+Elke command wat je op CLI kan uitvoeren kan je gebruiken in een script 
+
+De #!/bin/bash zorgt dat script in juiste shell opgestart word.  
+
+Eindig script op .sh zodat gebruiker kan zien dat dat een script is.  
+
+Dus met crontab maak je een script!  
+
+ 
+
+lesblok 19 scripting2 
+
+een script begin je met #!/bin/bash 
+
+goed gebruik om script te maken met extensie sh dus: voorbeel.sh. 
+
+goed gebruik om in script beschrijving te geven van wat t doet. Dit doe je door # ervoor te zetten. 
+
+Door in konsole ./voorbeeld.sh te typen voer je script uit.  
+
+Voordat je script kunt gebruiken moet je eerst de script uitvoer recht geven (chmod 770 naam) 
+
+ 
+
+Variabelen 
+
+Aantal ingebouwde variabelen die je kunt gebruiken: 
+
+$HOME = toont path van homedirectory.  
+
+$USER = gebruikersnaam word getoond.  
+
+Je kan ook zelf variabelen declareren in script. Dit doe je door in hoofdletters de naam van variable te typen en daarna = teken en daarna waarde.( NAAM=waarde) 
+
+Roep nu variable aan met $ teken gevolgd door naam. ($VARIABLE)  
+
+Met commando env in konsole zie je alle standaard variable.  
+
+Met commando echo check je of variable bestaat. (echo $naam) 
+
+Met commando export in konsole kan je variable aanmaken. (export distro =’naam’) 
+
+Met commando unset in konsole kan je variable verwijderen. (unset naam) 
+
+Met commando env | grep distro kan je checken of variable te vinden is in shell.  
+
+ 
+
+In een script kan je ook werken met parameters. In het script zet je neer “$0” “$1” 
+
+Vervolgens als je script uitvoert zet na ./script3.sh neer wat je op die plek wilt hebben staan.  
+
+(./script3.sh voorbeeld voorbeeld)  
+
+Met commando read in script kun je input van een gebruiker uitlezen. Dus wat de gebruiker invoert sla je op in een variable. Dan gebruik je de variable later om te doen wat moet gebeuren. Read zet je altijd onder het command wat zorgt voor de input. 
+
+Met commando clear in script krijg je een schoon beeld. 
+
+  
+
+ 
+
+Lesblok 20 scripting 3 
+
+Met commando date in konsole word de datum weergeven.  
+
+back-tics (key onder esc) = als command in een command hebt zoals echo zal het command tussen de back-tics als eerste worden uitgevoerd. Dus bijv.  
+
+command: echo het is vandaag date. 	Output het is vandaag date.  
+
+Command echo het is vandaag `date` 	output: het is vandaag (hier komt de datum te staan) 
+
+Je kan ook van een command een variable maken. In konsole doe je dit door het commando tussen haakjes te zetten en de extra opties tussen’’. Dat ziet er als volgt uit: 
+
+echo “$(date ‘+%d-%m-%y-%H:%M’)” 
+
+in een script doe je hetzelfde maar dat zet je de naam en het = teken ervoor:  
+
+NU=“$(date ‘+%d-%m-%y-%H:%M’)” 
+
+ 
+
+Rysnc in script gebruiken 
+
+Je kan een backup in een script neerzetten. De feedback van de backup zet je in een logfile in de map backup. Om ook de tijd van de logfile bij de backup te zetten gebruik je het command van hierboven. Dat ziet er dan als volgt uit: 
+
+NU="$(date +%d-%m-%y-%H:%M)" 
+
+rsync -av /home/sander/fotos/ /tmp/backup > /tmp/backup/Logfile$NU  
+
+door command in console crontab -e te doen kom je in crontab en kan je de script om een bepaalde tijd uitvoeren.  
+
+ 
+
+Algemene tip voor script: 
+
+Als je script niet doet omdat ie command niet kent kan het zijn dat je de variable moet koppelen aan het command. Bijv. 
+
+AANTAL_LIJNEN=”$(ls “/home/$USER” | wc -l)” 
+
+Hierbij gaat het om de boven komma’s van: “/home/$USER” 
+
+ 
+
+Lesblok 21 scripting 4 
+
+If then else fi in script 
+
+met commando test -f voorbeeld check je of bestand voorbeeld bestaat.   
+
+In script kan je ook if blok gebruiken in een script. 
+
+Hieronder staat een script die gebruiker vraagt welk bestand deze wilt verwijderen. bijv: 
+
+If test -f $BESTAND  
+
+Then 
+
+rm -r $BESTAND  
+
+else 
+
+echo $BESTAND “bestaat niet” 
+
+je kan in plaats van command test ook 2 [] gebruiken met een spatie ervoor en erachter. Dit word veel gebruikt in scripts. Bijv: if [ -f $BESTAND ] 
+
+ 
+
+met commando rpm -q voorbeeld kan je checken of rpm voorbeeld is geïnstalleerd.  
+
+Als je daarna commando echo $? Invult geeft dit 1 of 0 weer. 1 is true en dus geïnstalleerd. 0 is false en dus niet geïnstalleerd. 
+
+Met commando test -d voorbeeld checken of directory voorbeeld bestaat.  
+
+Met commando test -s voorbeeld check je of bestand voorbeeld groter is dan 0 bytes.   
+
+Bij tip staat: “door de uitvoer van regel 6 if af te vangen.” Wat bedoelen ze met af te vangen?  
+
+Hier staat ook: “het zwarte gat /dev/null”. Wat is dit zwarte gat?  
+
+ 
+
+test -d command waarmee je controleert of een directory bestaat.  
+
+test -f  = test of file bestaat.  
+
+test ! -f = test of een file niet bestaat. 0 = bestaat niet 
+
+test -x = test of je x-recht hebt toegekend 
+
+test -eq = test of voor en na optie numeriek gelijk is.  
+
+test ! -eq = test of voor en na optie ongelijk is  
+
+test -ne = test op numerieke ongelijkheid 
+
+test = test of strings gelijk zijn 
+
+test != ongelijk zijn  
+
+test x -eq x -o y -eq y = test of de een of ander gelijk is (or)  
+
+test x -eq x -a y -eq y= test of allen hetzelfde zijn. 
+
+test -gt = test op groter dan  
+
+test -lt = test op kleiner dan.  
+
+ 
+
+Je kunt ook bij script elif gebruiken. Na elif gebruik je ook then. 
+
+Hieronder heb je een aantal operators die je kan gebruiken in script 
+
+-eq = is gelijk aan. of je stelt de vraag: zijn ze gelijk?  
+
+-gt = groter dan. Is de eerste groter dan de tweede? 
+
+-lt = kleiner dan. Is de eerste kleiner dan de tweede? 
+
+Door achter elke if en then > /dev/null 2>&1 te zetten zorg je ervoor dat foutmeldingen als de standaard output niet worden laten zien.  
+
+Je kan de foutmeldingen ook in een bestand zetten ipv de output door na elke if en then het volgende te zetten &>> voorbeeld.txt 
+
+Soms moet je bij if en then moet je de command tussen [] zetten. Dus als if then niet werkt probeer dat.  
+
+ 
+
+Lesblok 22 scripting 5 
+
+Je kan ook for-loop gebruiken in scripts. Dat ziet er als volgt uit: 
+
+For i in 1 2 3 4 5 6 7 8 9 10 
+
+Do  
+
+Echo “dit is getal $i” 
+
+Done 
+
+ 
+
+Door een $ voor een berekening te zetten maak je een variable van wat er achter $ komt.  
+
+Dus als je in de for loop doet: echo “$i x $GETAL = $(( $i * $GETAL))” 
+
+In script is dus de * keer en is hetgeen voor = om het getal te laten zien. Dus:  
+
+1 x 5 = 5 (hierbij is 5 het ingevoerde getal) 
+
+ 
+
+ 
+
+Je kan ook while loop gebruiken. Zolang output pos is word do uitgevoerd.  
+
+counter=1 
+
+while [ $counter -le 10 ] 
+
+do  
+
+echo $counter  
+
+((counter++)) 
+
+done 
+
+hierbij is de ++ en plus. Dus er komt 1 bij de counter.  
+
+De -le 10 geeft aan dat dit 10 keer door de while loop heen moet.  
+
+ 
+
+Door echo -e kan je sequenties meegeven: 
+
+echo -e “dit is 1 backslash \\” >> sequenties 
+
+echo -e “dit \t zijn \t tabs” >> sequenties 
+
+als je nu cat sequenties typt zie je de sequenties.  
+
+Dus \\ geeft backslash weer. \t = tabs. \n = maakt een enter. \n is backspace voor enter. Dus voegt meerdere componenten samen in 1 zin. 
