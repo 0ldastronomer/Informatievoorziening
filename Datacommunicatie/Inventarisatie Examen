@@ -11,12 +11,14 @@ Ipconfig
 Commands voor op cisco apparaten: 
 
 -CDP-
+(als cdp niet aan staat: cdp run)
 Show cdp neighbors 
 Show cdp entry "naam apparaat" 
 Show ip interface brief 
 Show mac address-table 
  
 -LLDP-
+(als lldp niet aan staat: lldp run)
 show lldp neighbors
 show lldp details
 show interface
