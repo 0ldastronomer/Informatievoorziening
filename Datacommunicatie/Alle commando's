@@ -1,0 +1,826 @@
+Commando’s configuratie router.  
+
+ 
+
+enable =			van user naar privileged exec mode 
+
+disable =			van privileged naar user exec mode  
+
+configure terminal=	van privileged naar global configuratie modes. Om een terminal te configureren moet je eerst naar privileged mode, dan naar global configuratie modes.  
+
+Exit =	van global configuratie modes naar privileged mode. En van een subconfiguration mode naar global configuration mode.  
+
+Line console 0 =		van privileged mode naar de line subconfiguration mode  
+
+End (ctrl+z) =			van elke subconfiguration mode naar privileged mode  
+
+Interface vlan 1 =		van een subconfiguration mode direct naar  
+
+interface configuration mode  
+
+line vty 0 15=			Hiermee ga je naar 15 lijnen van je ports.  
+
+ping *ip adress* =		ping dat ip adres  
+
+? =	context-sensitive help. Voor informatie over een command of meerdere commands.  
+
+Show running-config =	typ in privileged modes om de running config te laten zien. dus laat de op dat moment opgeslagen configuratie zien.  
+
+Show startup-config = 		typ in privileged mode. Om de startup-config file te laten zien.  
+
+Copy running-config/startup-config = 	typ in privileged modes om de veranderingen gemaakt in de running configuration op te slaan in de startup configuratie file. 
+
+Reload =	typ in privileged modus om de startup config file te laden. (dit is als je de config hebt veranderd en een ongewenst resultaat krijgt.) 
+
+Erase startup-config =	om de startup file leeg te maken en device opnieuw op te starten. Na de command typ de reload command om de running config leeg te maken. (je zet m dus terug naar default modus) 
+
+Ipconfig =			laat de ipv4 adressen, subnetmask, gateway info zien.  
+
+Ipv6 unicast-routing= 	voer je bij de router in. Zet DHCP aan. Dus zorgt ervoor dat adressen automatisch ingevuld worden.   
+
+arp -d=	clear the arp table. 
+
+show mac-address-table 
+
+ssh -l <username> <ip> =	verbinden via ssh met ander apparaat. IP = hierbij apparaat. 
+
+show cdp neighbors =		laat de apparaten en porten zien waarmee het apparaat verbonden is 
+
+sh cdp entry <switch 90>= 	laat ip en info van apparaat zien. Hierbij is Switch90 naam van apparaat 
+
+no switchport = 	zet router port om naar switch port. (dit moet bij sommige switches als je die voor het eerst instelt. Anders werkt dan in de interface het ip address commando (om interface ip te geven) niet. 
+
+ 
+
+Om bijvoorbeeld een router een naam te geven typ de volgende commands. 
+
+Configure terminal (van privileged mode naar global config mode)  
+
+Hostname *typ hier de naam* (geeft naam aan de switch) 
+
+No hostname (om de switch weer zijn default naam te geven) 	 
+
+ 
+
+Om switchport naar router port in te zetten 
+
+Config terminal  
+
+Interface (interface) = ga hier naar de juiste interface 
+
+No switchport = om de port up te maken.  
+
+User exec mode een wachtwoord in te stellen  
+
+Configure terminal  
+
+Line console 0 = om user exec mode een ww te geven moet je dit in line subconfiguratie modes doen.  
+
+Password typ hier het wachtwoord  
+
+Login = hiermee enable je user exec mode wachtwoord.  
+
+ 
+
+Privileged exec mode een wachtwoord in te stellen   
+
+configure terminal  
+
+enable secret *typ hier het wachtwoord* 
+
+exit 
+
+virtual terminal lines een wachtwoord in te stellen 
+
+configure terminal 
+
+line vty 0 15 = hiermee secure je lijn 0 tot en met 15 in virtual terminal met een wachtwoord 
+
+password *typ hier je wachtwoord* 
+
+login 
+
+end 
+
+ 
+
+om de startup-config en running-config een zwakken encryptie te geven (de startup-config en running-config hebben de meeste wachtwoorden opgeslagen en laten deze in normale tekst zien) 
+
+configure terminal 
+
+service password-encryption = om alle plain tekst wachtwoorden te encrypten  
+
+show running-config = om te verifiëren dat het bovenstaande command gelukt is.   
+
+ 
+
+Configureren van een banner op bijvoorbeeld de switch waar je op zit (een banner  geeft een tekst met een waarschuwing dat je niet in de switch mag komen terwijl er een wachtwoord op zit) 
+
+configure terminal  
+
+banner motd #typ hier het bericht wat je wil typen#  
+
+ 
+
+om configuratie files op te slaan en te archiveren 2 manieren  
+
+manier 1: 
+
+ga naar terminal   
+
+enable  
+
+copy run st		slaat de commando’s op  
+
+klik op ok. Als je ok ziet dan is ie opgeslagen 
+
+no shutdown 
+
+manier 2  
+
+configure terminal 
+
+do write		(slaat config file op) 
+
+klik op ok  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Om de virtual interface te configureren op een switch (doormiddel van de ip adres en subnetmask op de SVI configureren) deze manier is voor vlan 1 port  
+
+configure terminal 
+
+interface vlan 1 = om de SVI te configureren op een switch 
+
+ip address *typ hier eerst het ip adres en dan de subnetmask* 
+
+no shutdown = om de virtual interface aan te zetten 
+
+exit  
+
+ip default-gateway *typ hier een default-gateway ip* (als in netwerk met router typ je bij default gateway ip van poort router.) 
+
+ 
+
+Om een port toe te voegen op de vlan 
+
+configure terminal 
+
+interface fa0/1 	de fa0/1 is de port van je switch. Dus de verbinding van pc naar switch 
+
+switchport mode access 
+
+switchport access vlan 10	in dit geval is vlan 10 een voorbeeld.  
+
+ 
+
+voeg een discription toe op de interface  
+
+configure terminal  
+
+discription *typ hier discription* 
+
+ 
+
+Om een router in te stellen met ip enz (deze is voor gigabit ethernet port.) 
+
+configure terminal  
+
+interface gigabitethernet 0/1 (de 0/1 ligt aan welke switch je doet.)  
+
+Ip address <ip adres en subnetmask(255.255.255.0) het IP adres ligt natuurlijk aan de switch. 1.1.1.1 bijvoorbeeld 
+
+no shutdown 
+
+exit 
+
+doe dit bij beide porten van de router. 
+
+ 
+
+subinterface	om router in te stellen met sub interface 
+
+configure terminal  
+
+interface gig 0/0/1.10  
+
+encapsulation dot1q 10  
+
+ip address 192.168.10.8 255.255.255.0 
+
+ 
+
+om discription toe te voegen 
+
+configure terminal  
+
+interface vlan 1  
+
+discription (tekst)    na discription hoef je geen symbolen toe te voegen. Typ gewoon je tekst.  
+
+No shutdown 
+
+Exit 
+
+Alternatieve manier hiervoor. Het is 1 van de 2 geen idee welke 
+
+configure terminal 
+
+interface gigabitethernet 0/1  
+
+discription (tekst)	na discription geen symbolen toe voegen. Typ gewoon je tekst. 
+
+No shutdown  
+
+Exit 
+
+om ipv6 in te voeren (dit doe je op de router)  
+
+configure terminal 
+
+Ipv6 unicast-routing 
+
+Interface gigabitethernet 0/0 
+
+Ipv6 address 2001:db8:abcd:2::/64  
+
+Ipv6 address FE80::1 link-local	(moet je aanzetten bij ipv6 voor onderling communicatie ipv6. Om link local aan te wijzen. Deze blijft het zelfde) 
+
+Bij pc ga naar ip adressen. Dan zet ipv6 op automatisch.  
+
+ 
+
+SSH configureren en inloggen met pc in de router: 
+
+Eerst moet je de router ip geven. Zodra dat is gedaan zet je de hostname van de router: 
+
+Hostname [naam] 
+
+daarna maak je domain name aan: 
+
+Ip domain name admin 
+
+Nu generate je encryption keys voor beveiliging en enable password: 
+
+Crypto key generate rsa 
+
+1024 (dit is hoeveel bits de key is denk, dit kan tussen 360 en 2048 zijn) 
+
+enable password [ww] (hiermee config je enable password van privileged mode) 
+
+nu config je gebruikersnaam en ww voor de local login ( dus ww voor het gebruiken van cli router in pc) 
+
+username [naam] password [ww] 
+
+ip ssh version 2 (hiermee geef je versie van ssh aan die je wilt gebruiken) 
+
+line vty 0 15 (met volgende 3 commands connect je vty line van router en config je SSH protocol) 
+
+transport input ssh  
+
+login local 
+
+ga nu naar desktop command prompt en open remote SSH session  
+
+ssh -l naam 192.168.10.1 (hierbij is naam de username van local login, ip is default gateway van pc. Dus ip van router) 
+
+  
+
+Ip dat je opstelt is default gateway voor netwerk.  
+
+Bij pc moet je default gateway instellen op plaats van ipv4 (def G = address van de routerport waaraan het netwerk vast zit.) 
+
+4 belangrijke adressen in ipv4 netwerken: 
+
+Netwerk adres (eerste adres in het netwerk (niet bruikbaar) bv: 192.168.10.0 hierbij gaat het om de .0	afkorting = NA 
+
+First host adres (Netwerk adres + 1) afkorting= FH  
+
+Last host adres (Het op 1 na laatste adres in het netwerk) afkorting= LH 
+
+Broadcast adres (Het laatste adres in het netwerk (niet bruikbaar)) afkorting= BC 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+subnetteren van ip addressen.  
+
+Je geeft ip aan op router. deze is altijd +1 van het netwerk  
+
+Bij subbneteren deel je het netwerk in 2. Dan heb je dus 192.168.10.0 255.255.255.127 en 192.168.10.127 255.255.255.255. om het netwerk verder op te delen doe je deze wederom door de helft. Dus dan heb je: 192.168.10.128 255.255.255.191 en 192.168.10.192 255.255.255.255. en zo ga je door. Dus: 
+
+/24 = 256 > 255.255.255.0	(de 256 zijn de bits van de subnetmask die ie kan gebruiken) 
+
+/25 = 128 > 255.255.255.128 
+
+/26 = 64 > 255.255.255.192 
+
+/27 = 32 > 255.255.255.224  
+
+/28 = 16 >255.255.255.240 
+
+Conf terminal  
+
+Int gig 0/1  
+
+Ip address 192.168.10.1 255.255.255.128 ( de 1 is het ip van de router) 
+
+ 
+
+Uitleg hoe je met binair kan berekenen. Dus hoe je achter broadcast adres en netwerk adres achter komt. 
+
+Ip = 10.10.10.47 /27 
+
+een 10 bestaat uit 8 nullen of enen. De nullen of enen bestaan op volgorde uit de volgende getallen: 
+
+128 64 32 16 8 4 2 1 (dit zijn 8 getallen) deze cijfers tel je bij elkaar op totdat je 10 hebt. Dus 8 en 2 worden 1 en de rest is nul, want samen vormen 8 en 2 10. Het hele binaire ip ziet er als volgt dus uit: 
+
+00001010.00001010.00001010.00101111. met subnetmaks doe je hetzelfde.  
+
+/27 = 32 = 255.255.255.224 je krijgt dus: 11111111.11111111.11111111.111.00000. omdat je bij subnetmask niet degene die voor de 32 staan op nul kan zetten zet je die op 1. 
+
+om achter de broadcast of netwerk adres te komen moet je binair ip en binair subnet onder elkaar zetten. Dan maak je overal waar zowel boven als onder een 1 staat een 1 en de rest 0 dus: 
+
+00001010.00001010.00001010.00101111 
+
+11111111.11111111.11111111.11100000 nu word de uitkomst dus:  
+
+00001010.00001010.00001010.00100000 = 10.10.10.32 = netwerkadres. Je broadcast = 63. Want 32+32= 64. En 64 is het netwerkadres van de volgende ip range.  
+
+ 
+
+routing on a stick	(vergeet niet om de no shutdown command te gebruiken) 
+
+(zorg wel dat je ip op pc configureert) 
+
+Dit doe je op de switch 
+
+Config terminal  
+
+Eerst config je de connectie tussen de router en de switch 
+
+Int Fa0/1  dit is de interface tussen je switch en de router  
+
+Switchport mode trunk  maakt van de port van de switch een trunk. Dus deelt port op in virtuele porten.  
+
+Exit 
+
+Nu creeer je de vlans en config de access ports 
+
+Interface vlan 10  
+
+Ip address 192.168.10.10 
+
+Interface vlan 20	  hiermee activeer je vlan 10 en vlan 20  
+
+Ip address 192.168.20.10 (zorg ervoor dat deze bij elke netwerk die je invoert anders is.  
+
+Nu koppel je elke vlan aan de bijbehorende interface (je voegt port toe aan vlan)  
+
+Int fa0/3 
+
+Switchport mode access  
+
+Switchport access vlan 10  
+
+Exit  
+
+Int fa0/2  
+
+Switchport mode access 
+
+Switchport access vlan 20  
+
+Exit  
+
+Nu zet je de sub interfaces op (dit op de router) 
+
+Int gig 0/0.10 	 
+
+Encapsulation dot1q 10 
+
+Ip address 192.168.10.1 255.255.255.0 
+
+Int gig 0/0.20  
+
+Encapsulation dot1q 20 
+
+Ip address 192.168.20.1 255.255.255.0 
+
+Int gig 0/0 
+
+No shutdown 
+
+ 
+
+ 
+
+Om ip route te doen op een netwerk 
+
+Je begint met de porten van de router ip te geven  
+
+Voer in op 1 router 
+
+Interface gig 0/0/1  
+
+Ip address 1.1.1.2 255.255.255.252	(de porten die met elkaar verbonden zijn moeten bij de eerste 3 dezelfde cijfer hebben.  
+
+Interface gig 0/0/2 
+
+Ip address 2.2.2.1 255.255.255.252  de 255.255.255.252 is subnet voor router en is /30 
+
+voer in op andere router  
+
+Interface gig 0/0/1 
+
+Ip address 1.1.1.1 255.255.255.252 
+
+Interface gig 0/0/2 
+
+Ip address 3.3.3.1 255.255.255.252 
+
+Enz….  
+
+Stel ook de ip van de pc’s in. 
+
+Nu doen we command ip route. Hierbij ga je ip route command doen naar elke netwerk die de router niet kan zien.: 
+
+Op router 3: 
+
+Configure terminal  
+
+Ip route 192.168.30.0 255.255.255.0 4.4.4.2 de 4.4.4.2 is de laatste port die de router kan zien. De 192.168.30.0 255.255.255.0 is de destination netwerk. Doe dit ook voor de 1.1.1.1. 
+
+Ip route 192.168.10.0 255.255.255.0 1.1.1.1 eerste ip is van netwerk links op plaatje de 1.1.1.1 is de laatste port die de router kan zien naar het netwerk toe.  
+
+Zodra je de netwerken van de pc hebt gedaan moet je ook de netwerken tussen de routers zelf doen die de router niet kan zien.   
+
+Ip route 2.2.2.0 255.255.255.252 1.1.1.1 
+
+Ip route 3.3.3.0 255.255.255.252 4.4.4.2 
+
+ 
+
+Afbeelding met tekst, binnen, schermafbeelding
+
+Automatisch gegenereerde beschrijving
+ 
+
+Ip route configureren (ervoor zorgen dat je van 1 netwerk kan pingen naar andere netwerk) 
+
+Configure terminal  
+
+Ip route ip van destination address+subnetmask + ip van laatste port die hij ziet. Dus bij router is dit ip port van router. de destination address is het ip van het netwerk. Dus wss een 0 op het einde.  
+
+Ip route 10.10.20.0 255.255.255.0 10.10.10.1 
+
+Denk eraan dat je eerst een netwerk goed configureert. Dus ip toevoegen van porten van routers.  
+
+ 
+
+Command om pc niet te laten pingen met andere pc van zelfde en andere netwerken 
+
+configure terminal 
+
+access-list 1 deny 192.168.60.11 0.0.0.255  dit maakt een access list en denied de pc om te pingen (hierbij is de subetmask omgekeerd. Dus ipv 255.255.255.0 is het degene hierboven) 
+
+interface gig 0/0/2   je moet de interface van je host kiezen. Dus je router.  
+
+ip access-group 1 in dit zorgt ervoor dat je de command bij de router zet.  
+
+Hieronder is voor een sub interface 
+
+interface gig 0/0/2.60  je moet ook de deny voor de sub netwerken. De .60 brengt je dus naar het sub netwerk.  
+
+ip access-group 1 in   
+
+ 
+
+Command om pc niet te laten pingen met andere pc van zelfde en andere netwerken op een andere manier  
+
+configure terminal  
+
+ip access-list extended Block_pc block pc is hierbij een naam. Die kan je dus veranderen  
+
+deny ip host 192.168.60.11 any  
+
+permit ip any any   
+
+interface gig 0/0/2  
+
+ip access-group Block_pc in 
+
+ 
+
+command om specifiek 2 pc niet met elkaar te laten communiceren  
+
+ip access-list extended Block_pc hiebij is block pc een naam. 
+
+Deny ip host 192.168.10.11 host 192.168.30.11 hierbij is eerste ip de source en de 2de is de destination adres  
+
+Permit ip any any  zorgt dat de rest wel gewoon can comminuceren met de pcs 
+
+Exit  
+
+Interface gig 0/0/2.60 hierbij is de .60 een sub interface.  
+
+Ip access-group Block_pc in  de in zorgt ervoor dat de router communicatie blokkeert.  
+
+ 
+
+ 
+
+OSPF	automatiseren ip route proces. (apparaten communiceren automatisch met elkaar) 
+
+Maak eerst op switch vlans aan. zet hierbij de 2 poorten van switch naar switch in trunk. Als je trunk zet zorg dat alle switches naar de pc toe op zelfde poort zitten, bijv. g0/1.  
+
+Op de ene switch voor de port op de switch 
+
+int gig0/1  
+
+switchport mode trunk  
+
+exit 
+
+Op de switch die verbonden staat met pc  
+
+Int Fa0/1  dit is de interface tussen je switch en de router  
+
+Switchport mode trunk  maakt van de port van de switch een trunk. Dus deelt port op in virtuele porten.  
+
+Exit 
+
+maak de vlan aan en config de access ports op switch verbonden met PC 
+
+Interface vlan 10  
+
+Ip address 192.168.10.10 hierbij is 10 voor vlan 10 en 20 voor vlan 20 
+
+Interface vlan 20  
+
+Ip address 192.168.20.10 
+
+Nu koppel je elke vlan aan de bijbehorende interface (je voegt port toe aan vlan)  
+
+Int fa0/3 
+
+Switchport mode access  
+
+Switchport access vlan 10 (vlan 10 is hierbij op de port van fa0/3) 
+
+Exit  
+
+Int fa0/4  
+
+Switchport mode access  
+
+Switchport access vlan 20. (vlan 20 is hierbij op de port van fa0/4) 
+
+Geef dan switch en router ip.   
+
+Op de switch pak je de port van de switch naar de router (switch kan je alleen ip geven als multilayer switch is en als je coomand no switchport gebruikt.  
+
+Int gig0/3  
+
+No switchport 
+
+Ip address 10.10.10.2 255.255.255.252 
+
+Op de router (bij sub interfaces moet je ook gebruiken command: Encapsulation dot1q 10 
+
+Int gig0/1 
+
+Ip address 10.10.10.1 255.255.255.252 
+
+nu geef je de ospf aan zodat de switch en router met elkaar kunnen communiceren 
+
+Op de multilayer switch 
+
+router ospf 1 (krijg je foutmelding voer eerst command: ip rounting in) 
+
+network 192.168.10.0 0.0.0.255 area 1 ( de 0.0.0.255 is dan wildcard mask. Area 1 is om naam te geven aan meerdere netwerken. Bij OSPF moet je dan in dezelfde benaming( area 1) hebben om met elkaar te kunnen communiceren) 
+
+network 192.168.20.0 0.0.0.255 area 1 (192.168.20.0 is de vlan.)  
+
+network 10.10.10.0 0.0.0.3 area 1 (10.10.10.0 is ip van netwerk. De 0.0.0.3 is wildcard mask van 255.255.255.252) 
+
+Ga nu naar router (nu geef je commando waarmee je OSPF toekent aan de router. Dus je geeft aan hoe je van de router naar een vlan toe gaat.)  
+
+network 10.10.10.0 0.0.0.3 area 1  
+
+VTP (om centraal beheer op netwerk mogelijk te maken. Dit is voor de switches en router) 
+
+Deze command line doe je per apparaat.  
+
+Maak eerst 1 switch/router de server (manager (dus vanuit manager kan je de rest centraal beheren) 
+
+config terminal 
+
+vtp mode server maakt router/switch de server (manager). 
+
+vtp domain “naam”  hiermee zet je elke router/ switch in hetzelfde domain zodat ze met elkaar kunnen communiceren  
+
+ga naar andere router 
+
+config terminal  
+
+vtp mode client  maakt router/switch client en doet alles wat de manger router/switch zegt 
+
+vtp domain “naam” 
+
+ 
+
+DHCP configureren op netwerk 
+
+Ga naar router  
+
+config terminal  
+
+ip dhcp pool “naam” maakt DHCP pool aan. de “naam” mag je zelf weten. Na deze command zit je in dhcp pool.  
+
+Network 192.168.10.10 192.168.10.150 255.255.255.0  nu heb je DHCP pool van 10 tot 150 gemaakt 
+
+Default router “ip address” maakt 1 router default gateway. Ip address is hierbij het ip van de router.  
+
+Voor vlans moet je elke een eigen pool geven. Dit doe je dus in de sub-config van de vlan. 
+
+Config terminal 
+
+maak eerst de sub interface aan. ga dan verder met command line hieronder.  
+
+Met vlans moet je meerdere dhcp pools aanmaken op dezelfde switch/router 
+
+Ip dhcp pool “naam” 
+
+Network 192.168.10.10 192.168.10.50 255.255.255.0 
+
+Default router “address” 
+
+Exit  
+
+Ip dhcp pool “naam” hier maak je een tweede DHCP pool aan voor andere vlan 
+
+Network 192.168.20.10 192.168.20.50 255.255.255.0 
+
+Default router “address” 
+
+ 
+
+ 
+
+Om switch een aantal ip adressen uit te laten delen die niet vallen te subneteren. Denk hierbij dus bijvoorbeeld aan van 10 tot 100.  
+
+Config terminal 
+
+Ip dhcp excluded-address 192.168.10.101 192.168.10.254	Je zegt tegen switch dat de ip addressen niet uit te delen.  
+
+ 
+
+Commando’s oefenen examen: 
+
+ 
+
+Opdracht 1: 
+
+ 
+
+Om switch een aantal ip adressen uit te laten delen die niet vallen te subneteren. Denk hierbij dus bijvoorbeeld aan van 10 tot 100.  
+
+Config terminal 
+
+Ip dhcp excluded-address 192.168.10.101 192.168.10.254	Je zegt tegen switch dat de ip addressen niet uit te delen.  
+
+ 
+
+ 
+
+Netwerk ontdekken voor een netwerk schema. 
+
+ssh -l <username> <ip> =	verbinden via ssh met ander apparaat. IP = hierbij apparaat. 
+
+show cdp neighbors =		laat de apparaten en porten zien waarmee het apparaat verbonden is 
+
+sh cdp entry <switch 90>= 	laat ip en info van apparaat zien. Hierbij is Switch90 naam van apparaat 
+
+voor volgende apparaat doe je eerst commando exit en dan: 
+
+ssh -l <username> <ip> 
+
+ 
+
+ 
+
+ 
+
+Root switch instellen(Spanning-tree) 
+
+ 
+
+Wanneer er gebruik gemaakt wordt van VTP(Vlan Trunking Protocol) moet er een root switch ingesteld worden, de standaard priority waarde is 32778. Je kan controleren welke switch de root switch is door te kijken of het mac adres overeenkomt tussen het ROOT ID adres en het BRIDGE ID adres. 
+
+Het controleren van de ROOT ID dor je als volgt: 
+
+Enable 
+
+Show spanning-tree vlan (vlan nummer) 
+
+ 
+
+Een switch instellen als root switch doe je als volgt: 
+
+Enable 
+
+Conf t 
+
+Spanning-tree vlan (vlan nummer) priority 0 
+
+De priority gaat met intervallen van 4096 waarbij 0 de hoogste priority heeft. 
+
+Doe dit voor elke betreffende vlan. 
+
+Voor redundancy kan je een andere switch een iets lagere priority geven, bijvoorbeeld: 4096. In het geval dat de root switch uitvalt neemt deze de taken over. 
+
+ 
+
+Commands voor inventarisatie:  
+
+Commands voor op de pc: 
+
+Ipconfig 
+
+ 
+
+Commands voor op cisco apparaten: 
+
+Show ip interface brief 
+
+Show mac address-table 
+
+Show cdp neighbors 
+
+Show cdp entry "naam apparaat" 
+
+ 
+
+ 
+
+Commands voor troubleshooten: 
+
+ 
+
+Show running-config =	typ in privileged modes om de running config te laten zien. dus laat de op dat moment opgeslagen configuratie zien.  
+
+Show startup-config = 		typ in privileged mode. Om de startup-config file te laten zien. 
+
+Show ip interface brief =	laat ip interfaces zien.  
+
+Show mac address-table =	laat mac address tables zien. 
+
+Show vtp status  
+
+Show interface trunk  
+
+Show spanning-tree  
+
+Show interfaces trunk  
+
+Show interfaces switchport 
+
+Show vlan brief 
+
+Show access-list test =		laat zien of ping van ene pc naar andere pc gelukt is. (Om te bewijzen dat een ping wel naar de router is gekomen maar niet verder) 
+
+ 
+
+ 
+
+ 
