@@ -34,7 +34,7 @@ Test door via de browser naar die website te gaan
 -Samba installeren/instellen-
 *uitvoeren als root user*
 zypper install samba
-systemctl start nmb.service
+systemctl start nmb.service (of smb.service als het niet werkt)
 Maak een map aan die je wilt delen
 chgrp (groep die erbij mag) (map naam)
 chmod 770 (mapnaam)
@@ -46,7 +46,7 @@ scroll naar beneden en voeg onderaan het volgende toe:
           writeable = yes
           comment = (comment naar keuze)
 ga uit smb.conf
-systemctl restart nmb.service
+systemctl restart nmb.service (of smb.service als het niet werkt)
 (in sommige gevallen moet je de firewall uitzetten, dit doe je met: systemctl stop firewalld.service)
 test door via windows een nieuwe netwerk locatie toe te voegen, voer hier \\(ip adres van de linux machine)\(mapnaam)
 
