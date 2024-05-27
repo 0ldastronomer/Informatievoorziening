@@ -51,6 +51,14 @@ systemctl restart nmb.service (of smb.service als het niet werkt)
 (in sommige gevallen moet je de firewall uitzetten, dit doe je met: systemctl stop firewalld.service)
 test door via windows een nieuwe netwerk locatie toe te voegen, voer hier \\(ip adres van de linux machine)\(mapnaam)
 
+-setfacl gebruiken-
+setfacl -m u:(user):rwx (mapnaam)
+op de plek van rwx kan je verschillende combinaties neerzetten:
+r-- = alleen leesrechten
+-w- = alleen schrijfrechten
+--x = alleen execute rechten
+Hier kan je alle combinaties mee maken
+
 -NFS server-
 *uitvoeren als root user*
 cd (pad waar je de nfs share wilt)
