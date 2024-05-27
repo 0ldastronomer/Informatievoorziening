@@ -74,3 +74,14 @@ Export list for localhost.localdomain:
 -NSF share benaderen-
 mkdir (mapnaam naar keuze)
 mount -t nfs (ip adres van server):(pad naar algemene nfs share map) (pad naar de map die zojuist is aangemaakt)
+
+-ssh-
+*uitvoeren als root user*
+zypper install openssh
+systemctl start sshd.service
+systemctl stop firewalld.service
+
+-ssh benaderen-
+in putty
+ip adres invullen
+ssh selecteren
