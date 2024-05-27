@@ -14,6 +14,7 @@ zypper install apache2
 systemctl start apache2.service
 cd /srv/www/
 mkdir vhosts
+cd vhosts
 mkdir (websitenaam.iets(zoals .nl)(herhaal zovaak als dat gevraagd wordt))
 cd (websitenaam)
 vi index.html
