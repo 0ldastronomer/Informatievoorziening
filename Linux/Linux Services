@@ -37,6 +37,7 @@ zypper install samba
 systemctl start nmb.service
 Maak een map aan die je wilt delen
 chgrp (groep die erbij mag) (map naam)
+chmod 770 (mapnaam)
 voeg een smb gebruiker toe: smbpasswd -a (username)
 vi /etc/samba/smb.conf
 scroll naar beneden en voeg onderaan het volgende toe:
