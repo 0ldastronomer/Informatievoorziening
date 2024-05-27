@@ -25,6 +25,7 @@ vi (websitenaam.conf)
 voer in de vi command line het volgende in:
 1,$ s/dummy-host.example.com/websitenaam/g
 sluit vi bestand
+systemctl restart apache2.service
 controleer met apachectl configtest
 vi /etc/hosts
 vul onder 127.0.0.1 je eigen ip adres in(hier kom je achter door ip addr) en vul daarna de website in
