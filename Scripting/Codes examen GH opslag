@@ -1,0 +1,402 @@
+# stukken codes die kunnen helpen:
+#meerdere values in lijst zetten in zelfde rij:
+Leden.append([nieuwvoornaam,nieuwachternaam,generated_password,nieuwlidleeftijd,"",""])
+
+
+
+# import csv code:
+import csv
+
+kassa = []
+winkelwagen = {}
+
+with open("kassa.csv") as kassaOBJ:
+    kassaCSV = csv.reader(kassaOBJ,delimiter=";")
+    for line in kassaCSV:
+        kassa.append(line)
+
+
+
+# import csv code 2:
+import csv
+
+file = "kassa.csv"
+assortiment = []
+
+#openen en opslaan van gevens in kassa.csv
+with open(file, mode ='r', newline='') as csvObject   #opent het csv document. zet alles in dezelfde map.
+    filecsv = csv.reader(csvObject, delimiter=';')
+    header = next(filecsv) 
+    for line in filecsv:
+        assortiment.append(line)
+
+
+
+# import csv code in def:
+import csv
+def uitlezenDB(fn,st): #fn = filename, st = scheidingsteken
+    tempList = []
+    with open(fn,mode='r',newline='') as temp:
+        tempCSV = csv.reader(temp, delimiter=st)
+        for line in tempCSV:
+            tempList.append(line)
+    return tempList
+
+
+
+
+#een in lijst gezette copy van database updaten.
+def updatenDB(fn,st,data): #fn = filename, st = scheidingsteken
+    with open(fn,mode='w',newline='') as temp:
+        tempCSV = csv.writer(temp, delimiter=st)
+        tempCSV.writerows(data)
+
+
+
+# genereren van password in def + het inplementeren van het genereren 
+import string
+import random
+def generate_password(length):
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+password_length = 12  # Change this to your desired password length
+# Generate and print a random password
+generated_password = generate_password(password_length)  # Pass the integer variable, not a string
+#stap 14.4.3 - print het wachtwoord.
+print("Generated Password:", generated_password)
+
+
+
+
+# om een boete te berekenen + boete in lijst plaatsen.
+for i,line in enumerate(Catalogus):
+    if Catalogus[i][4] == "ja":
+        #stap 13.5 berekenen van de boete
+        verschil=datetime.now - Catalogus[i][3]
+        boete=verschil *0.20
+        #stap 13.6 boete regristreren in database leden
+        Leden[i][5]+=boete
+        print(f"de deadline voor het inleveren is overscheden. uw boete = ", boete)
+    else:
+        break
+
+
+
+
+#het verwijderen van een lid en het verwijderen van een boek en deadline in een database.
+#Stap 13.7 - Het lid uit de database Catalogus halen van het boek
+for i,line in enumerate(Catalogus):
+    if titel in line:
+        Catalogus[i][2] = "-"
+        Catalogus[i][3] = "-"
+        break
+#Stap 13.8 - Het verwijderen van het boek + deadline uit de database Leden
+for j,line in enumerate(Leden):
+    if gebruikersnaam in line:
+        geleendeBoeken = line[4].split(',')
+        index = None
+        for x,boek in enumerate(geleendeBoeken):
+            if titel in boek:
+                index = x
+                break
+        geleendeBoeken.pop(x)
+        Leden[j][4] = geleendeBoeken
+        break
+
+
+
+
+#dictionary klein voorbeeld van hoe het werkt:
+boodschappen = {"banaan":0.95, "appel":0.55}
+boodschappenkar = {}
+
+product = input("Welk product heeft u?")
+
+if product in boodschappen:
+    aantal=input(f"Hoeveel van {product} heeft u?")
+    boodschappenkar[product]=aantal
+else:
+    print("false")
+
+print(boodschappenkar)
+
+
+
+
+#stuk code over een kassasysteem met printen bon:
+import csv
+
+kassa = []
+winkelwagen = {}
+
+with open("kassa.csv") as kassaOBJ:
+    kassaCSV = csv.reader(kassaOBJ,delimiter=";")
+    for line in kassaCSV:
+        kassa.append(line)
+
+while True:
+    while True:
+        product = input("welk product heeft u? ").lower()
+        if product == "klaar":
+            break
+        for line in kassa:
+            if line[0].lower() == product:
+                aantal = int(input(f"hoeveel van {product} heeft u? "))
+                if product in winkelwagen:
+                    winkelwagen[product] += aantal
+                else:
+                    winkelwagen[product] = aantal
+                break
+        if product == "klaar":
+            break
+
+    print("\n\nHolle Bolle Gijs\nDatumtijd\nmedewerker")
+    totaalprijs = 0
+    for product,aantal in winkelwagen.items():
+        prijs = 0
+        for line in kassa:
+            if line[0] == product:
+                prijs = line[1]
+        print(f"{aantal}\t{product}\t\t{prijs}\t{prijs*aantal}")
+        totaalprijs += aantal*prijs
+    print(f"Totaal: {totaalprijs}")
+    # deze houd zichzelf in een loop. 
+
+
+
+
+#opdracht toets p1      list
+#maak script waarbij input van pakketjes worden gecheckt. de namen met de juiste waardes worden geprint.
+naamVerkeerd=[]
+naamJuist=[]
+aantalPakketjes=""
+while aantalPakketjes !=0: #maakt loop
+    naam=input("typ hier uw voor en achternaam: ")
+    aantalPakketjes=int(input("typ hier het aantal pakketjes wat u wilt invoer. De max is 5: "))
+    for i in range (aantalPakketjes): # maakt loop op basis van hoeveel bij aantalpakketjes is ingevoerd.
+        inhoud=input("typ hier de lengte breedte en hoogte. doe dat op de volgende manier: L:B:H ")
+        gewicht=int(input("typ hier het gewicht van het pakketje in kg: "))
+        lengte=int(inhoud.split(":")[0])  # split de inhoud op in apparte variable 
+        breedte=int(inhoud.split(":")[1])
+        hoogte=int(inhoud.split(":")[2])
+        if aantalPakketjes<6: #checkt of pakket voldoet aan de voorwaarde. 
+            if gewicht<=15:
+                if lengte<= 55 or breedte<=40 or hoogte<=20:
+                    naamtijdelijk=naam.split()  #split de naam en voor en achternaam en stopt t in naamtijdelijk
+                    naamJuist.append(naamtijdelijk[1] +" "+ naamtijdelijk[0])
+                    naamJuist=list(dict.fromkeys(naamJuist)) # zorgt dat alle namen die hetzelfde zijn maar 1 keer voorkomen in lijst naamGoed  
+                else:
+                    naamVerkeerd.append()
+                    naamVerkeerd.clear()
+    print(*naamJuist, sep=', ') #print de namen zonder de []
+else:
+    print("Ik begrijp u niet.")
+
+
+
+
+#L2P3 opdracht dictionary.
+# vraag client om naam en leeftijd en zet deze in ictionary. 
+# maak van print een def. en maak keuzelijst aan de hand van aantekeningen. 
+namen={}
+def namen2(namen):
+    print('\n'.join("uw naam is: {}. Uw leeftijd is: {}.".format(k, v) for k, v in namen.items()))
+
+while True:
+    naam_leeftijd=input("typ hier uw naam en uw leeftijd. Voer het als volgt in: Sander:18 ")
+    if naam_leeftijd.lower() == "sander":
+        namen_sorted=sorted(namen.items(), key=lambda x:x[0])
+        break
+    else:
+
+namen2(namen)
+
+print("optie1 is iets toevoegen.")
+print("optie2 is iets verwijdenen.")
+print("optie3 is de dictionary printen")
+print("optie4 is volledige dictionary verwijderen.")
+print("optie5 is programma resetten.")
+print("optie6 is het programma stoppen.")
+
+while True: 
+    keuze=input("typ hier de optie die u wilt keizen: ")
+    if keuze == "optie1":
+        naam_leeftijd=input("typ hier uw naam en uw leeftijd. Voer het als volgt in: Sander:18 ")
+        naam=naam_leeftijd.split(":")[0]
+        leeftijd=naam_leeftijd.split(":")[1]
+        namen[naam]=leeftijd
+    elif keuze == "optie2":
+        verwijder=input("typ hier de naam die u wilt verwijderen: ")
+        if verwijder not in namen:
+            print("de naam en bijbehorende leeftijd zitten niet in de lijst. maak uw keuze opnieuw.")
+        else: 
+            namen.pop(verwijder)
+    elif keuze == "optie3":
+        namen2(namen)
+    elif keuze == "optie4":
+        namen.clear()
+#   elif keuze == "optie5":   wat word bedoeld met programma resetten?
+    elif keuze == "optie6:":
+        print("het programma is gestopt.")
+        break
+
+
+
+
+#oefenopdracht toets p7. 
+#bereken het gemiddelde van de getallen in een lijst. bepaal verste getal van het gemiddelde in de lijst. 
+list=[10,8,24,15,28,26,19,4,3,9]
+
+def gemiddelde_berekenen(list):
+    return round(sum(list)/len(list),1)
+
+def getal_berekenen(list):
+    verstegetal1=round(max(list) - gemiddelde_list,1)
+    verstegetal2=round(gemiddelde_list - min(list),1)
+    if verstegetal1 > verstegetal2:
+        cijfer1=max(list)
+        index=list.index(cijfer1)
+        return cijfer1, index, verstegetal1
+    elif verstegetal2 >= verstegetal1:
+         cijfer2=min(list)
+         index=list.index(cijfer2)
+         return cijfer2, index, verstegetal2
+    else:
+        print("hoi")
+
+
+
+
+#toets p3 
+#deel dat zorgt voor de loop om de namen in de juiste volgorde te krijgen.
+klantennamen = ["Sophia", "Jackson", "Charlotte", "Oliver", "Alice", "Miguel", "Sophia", "Charlotte", "Jackson", "Jackson", "Sofia", "Julia"]
+nieuwenamen = []
+for el in klantennamen:
+    if el not in nieuwenamen:
+        nieuwenamen.append(el)
+
+nieuwenamen.sort()
+#deel dat zorgt voor de nieuwe namen 
+i=0 
+for el in nieuwenamen:   
+    i+=1
+    print(i+"."+ el)   #Plus moeten gebruiken om de punt erin te zetten
+
+
+
+
+#toets jaar 2 periode 1:
+naamGoed=[]
+namenGoed=[]
+namenFout=[]
+naam=""
+while naam!="stop":
+    naam=input("typ hier uw voornaam en achternaam: ")
+    bagage=int(input("typ hier hoeveel stukken bagage u meeneemt: "))
+    for i in range(bagage):
+        inhoud=input("typ hier de afmeting die uw bagage bevat. uw begage mag niet meer zijn dan 55:40:20. gebruik hierbij de volgende opzet: l:b:h ")
+        gewicht=int(input("typ hier het gewicht van uw bagage in kg. Dit mag maximaal 12 kg zijn. rond hierbij af op hele kilo's: "))
+        lengte=int(inhoud.split(":")[0])
+        breedte=int(inhoud.split(":")[1])
+        hoogte=int(inhoud.split(":")[2])
+        if bagage >=2:
+            if lengte > 55:
+                if breedte >40:
+                    if hoogte >20:
+                        if gewicht >12:
+                            namenFout.append(naam)
+                            namenFout.clear()
+                        else:
+                            naamTijdelijk=naam.split()
+                            naamGoed.append(naamTijdelijk[1]+" "+naamTijdelijk[0])
+                            namenGoed=list(dict.fromkeys(naamGoed))
+        print(*naamGoed, sep=', ')
+
+
+# opdracht waarbij gemiddelde cijfer van een klas word berekend.
+klas={}
+gemiddelde_klas={}
+
+def gemiddelde_berekenen(klas):
+    for k,v in klas.items():
+        gemiddelde_klas[k] = sum(v) / len(v)
+        print(gemiddelde_klas)
+
+while True: 
+    naam=input("typ hier de naam van de student: ")
+    cijfer=input("typ hier het cijfer van de student: ")
+    if naam =="hoi" :
+        gemiddelde=gemiddelde_berekenen(klas)
+        print(gemiddelde)
+        break
+    elif naam in klas:
+        klas[naam].append(cijfer)
+        print(*[str(k) + ':' + str(v) for k,v in klas.items()], sep='\n')
+    elif naam not in klas:
+        klas[naam]=[cijfer]
+    else:
+        print("klaar")
+
+
+
+
+#dictionary hoe werkt t:
+boodschappen = {"banaan":0.95, "appel":0.55}
+boodschappenkar = {}
+
+product = input("Welk product heeft u?")
+
+if product in boodschappen:
+    aantal=input(f"Hoeveel van {product} heeft u?")
+    boodschappenkar[product]=aantal
+else:
+    print("false")
+
+print(boodschappenkar)
+
+
+
+#Opdracht 3:
+#Maak een keuzemenu, waar je pas uitgaat als de optie stop/quit wordt gebruikt.
+#In het keuzemenu zijn de volgende opties:
+#Optie 1 is een list vullen aan het einde
+#Optie 2 is een list vullen op een specifieke plek
+#Optie 3 is een element uit een list verwijderen
+#Optie 4 is de hele list verwijderen
+#Zorg dat elke optie juist werkt.
+
+#Lever het script, dus het .py bestand in via netacad. 
+lijst=[] 
+while True: # zorgt ervoor dat de code in een loop blijft tot het anders word aangegeven.
+    print("optie 1 is een list vullen aan het einde")
+    print("optie 2 is een list vullen op een specifieke plek")
+    print("optie 3 is een element uit een list verwijderen")
+    print("Optie 4 is de hele list verwijderen")
+    print("optie 5 voert u in als u wilt stoppen") # print de opties
+    nummer=int(input("typ hier de nummer in:")) # zorgt dat je de optie kan invullen D.M.V. een nummer invoeren. 
+    if nummer ==1: 
+        invoer1=input("typ hier wat u in de lijst wilt hebben: ") # zorgt dat je kan invullen wat je in de lijst wilt hebben.
+        lijst.append(invoer1)  # plaatst de ingevoerde data in de lijst: lijst. 
+        print(*lijst, sep=', ') # vervangt de brackets met comma's.
+    elif nummer ==2:
+        invoer2=input("typ hier wat u in de lijst wilt hebben: ")
+        plaats=int(input("typ hier waar u dit wilt invoegen. hierbij is 0 vooraan en schuift u bij elke nummer 1 plaats op: "))
+        lijst.insert(plaats, invoer2 ) #plaatst de ingevoerde data op de juiste plaats. 
+        print(*lijst, sep=', ')
+    elif nummer==3:
+        invoer3=input("typ hier wat u uit de lijst wilt verwijderen.")
+        if invoer3 in lijst:
+            lijst.remove(invoer3) # verwijderd de ingevoerde data van de lijst. 
+        else: 
+            print(f"{invoer3} komt niet voor in lijst.") # failsafe. als je iets invult wat niet in de lijst zit, geeft de code geen error en negeert wat ingevult is. de code begint weer bij het begin. 
+        print(*lijst, sep=', ')
+    elif nummer==4:
+        lijst.clear() #maakt de lijst leeg.
+        print(*lijst, sep=', ')
+    elif nummer==5: #stopt de loop.
+        break 
+    else:
+        print("wat u typt klopt niet. typ de nummer van de optie die u wilt.") 
+        # print als je geen van de bovenstaande opties wordt ingevult. of het verkeerd wordt ingevult.
