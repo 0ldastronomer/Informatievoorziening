@@ -1,0 +1,138 @@
+<mxfile host="Electron" modified="2024-04-15T08:52:27.353Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.7.5 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="Ffj4SWn6rWtnknCitcCj" version="21.7.5" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1301" dy="1028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-6" target="e1L_gRIdONzllOQ5IEbR-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-0" value="start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-20" y="650" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-1" target="e1L_gRIdONzllOQ5IEbR-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-1" value="2.&lt;br&gt;Open de database Klanten.csv" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-40" y="860" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-8" value="ja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-3" target="e1L_gRIdONzllOQ5IEbR-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-13" value="nee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-3" target="e1L_gRIdONzllOQ5IEbR-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-3" value="3.&lt;br&gt;staat er nog een regel in de database?" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-35" y="945" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-0" target="e1L_gRIdONzllOQ5IEbR-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="730" as="sourcePoint" />
+            <mxPoint x="20" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-6" value="1&lt;br&gt;Maak de volgende variabelen:&lt;br&gt;klanten: dict&lt;br&gt;factuur: dict" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-40" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-7" value="3.1.&lt;br&gt;Kopieër de regel van klanten.csv in de dictionary klanten" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-40" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-9" target="e1L_gRIdONzllOQ5IEbR-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-9" value="3.2.&lt;br&gt;Ga naar de eerstvolgende regel in klanten.csv" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="110" y="970" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-10" value="" style="endArrow=classic;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-7" target="e1L_gRIdONzllOQ5IEbR-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="1150" as="sourcePoint" />
+            <mxPoint x="190" y="1100" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="170" y="1110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-29" target="e1L_gRIdONzllOQ5IEbR-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-12" value="4.&lt;br&gt;Ga naar de eerstvolgende regel in klanten dictionary" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-220" y="970" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-17" value="ja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-14" target="e1L_gRIdONzllOQ5IEbR-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-34" value="nee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-14" target="e1L_gRIdONzllOQ5IEbR-33" edge="1">
+          <mxGeometry x="0.4286" y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-14" value="6.&lt;br&gt;Staat er nog een regel in klanten dictionary" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-215" y="1185" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-16" target="e1L_gRIdONzllOQ5IEbR-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-16" value="7.&lt;br&gt;Sla de producten van de klanten op in een nieuwe variabele: producten" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-220" y="1330" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-24" value="ja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-18" target="e1L_gRIdONzllOQ5IEbR-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-27" value="nee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-18" target="e1L_gRIdONzllOQ5IEbR-26" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-18" value="9.&lt;br&gt;staan er nog een product in producten" style="rhombus;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-215" y="1520" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-21" target="e1L_gRIdONzllOQ5IEbR-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-21" value="8.&lt;br&gt;Ga naar het eerstvolgende product" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-220" y="1440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-23" value="9.1.&lt;br&gt;Sla het product op in een de variabale factuur met het product en de prijs." style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-70" y="1535" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-25" value="" style="endArrow=classic;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-23" target="e1L_gRIdONzllOQ5IEbR-21" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-30" y="1600" as="sourcePoint" />
+            <mxPoint x="20" y="1550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-10" y="1470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-26" value="10.&lt;br&gt;Print de factuur" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-440" y="1545" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-12" target="e1L_gRIdONzllOQ5IEbR-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-160" y="900" as="sourcePoint" />
+            <mxPoint x="-160" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-29" value="5.&lt;br&gt;Reset de waarde van factuur" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-220" y="1090" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-33" target="e1L_gRIdONzllOQ5IEbR-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-33" value="6.1&lt;br&gt;Geef aan dat het programma klaar is" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-360" y="1210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-35" value="stop" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-340" y="1320" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e1L_gRIdONzllOQ5IEbR-37" value="" style="endArrow=classic;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="e1L_gRIdONzllOQ5IEbR-26" target="e1L_gRIdONzllOQ5IEbR-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-510" y="1420" as="sourcePoint" />
+            <mxPoint x="-460" y="1370" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-380" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
